@@ -1,0 +1,6 @@
+fraud_detection_env/
+resume_match_env/
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
