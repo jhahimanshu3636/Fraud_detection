@@ -1,501 +1,501 @@
 company_id,name,country,sector,risk_score,opportunity_score,is_supplier
-C0,Kim-Walker,FR,HEALTH,0.0,0.0,False
-C1,"Greene, Henson and Blankenship",AU,MFG,0.0,0.0,False
-C2,Carroll PLC,JP,RETAIL,0.0,0.0,False
-C3,Fields-Robinson,IN,FOOD,0.0,0.0,False
-C4,Greene Ltd,JP,FOOD,0.0,0.0,False
-C5,Gordon-Wilson,SG,ENERGY,0.0,0.0,False
-C6,"Short, Medina and Arroyo",US,FIN,0.0,0.0,False
-C7,"Smith, Houston and Lopez",FR,TECH,0.0,0.0,False
-C8,"Smith, Williams and Johnson",SG,HEALTH,0.0,0.0,False
-C9,Mendoza PLC,IN,FIN,0.0,0.0,False
-C10,"Knight, Nunez and Castillo",AU,TECH,0.0,0.0,True
-C11,"Sanchez, Arroyo and Bass",AU,RETAIL,0.0,0.0,False
-C12,"Hicks, Rivera and Mann",FR,ENERGY,0.0,0.0,True
-C13,"Myers, Martin and Stafford",US,HEALTH,0.0,0.0,False
-C14,Hammond Inc,UK,ENERGY,0.0,0.0,False
-C15,Mckenzie Inc,JP,TECH,0.0,0.0,False
-C16,Evans LLC,DE,HEALTH,0.0,0.0,False
-C17,Powers-Keller,IN,FOOD,0.0,0.0,False
-C18,Powers Ltd,JP,ENERGY,0.0,0.0,False
-C19,"Sullivan, Frank and Rice",US,RETAIL,0.0,0.0,False
-C20,Hill Inc,JP,TECH,0.0,0.0,False
-C21,"White, Collins and Carter",UK,FOOD,0.0,0.0,False
-C22,"Weber, Ruiz and Porter",UK,TECH,0.0,0.0,False
-C23,"Martinez, Gonzalez and Campbell",SG,FIN,0.0,0.0,False
-C24,Hartman Group,IN,FOOD,0.0,0.0,False
-C25,"Schwartz, Oneal and Dalton",AU,FOOD,0.0,0.0,False
-C26,Faulkner-Estrada,SG,ENERGY,0.0,0.0,False
-C27,Liu-Moreno,US,TECH,0.0,0.0,False
-C28,"Mckenzie, Douglas and Mendez",FR,HEALTH,0.0,0.0,False
-C29,West Group,IN,FIN,0.0,0.0,False
-C30,"Chandler, Howard and Mcintyre",SG,FIN,0.0,0.0,False
-C31,Garrison Inc,DE,ENERGY,0.0,0.0,False
-C32,Ray Ltd,IN,ENERGY,0.0,0.0,False
-C33,Mitchell-Bates,AU,MFG,0.0,0.0,False
-C34,"Harris, Miller and Hanson",SG,FIN,0.0,0.0,False
-C35,Brock-Odom,JP,FIN,0.0,0.0,False
-C36,Harris-Walton,US,RETAIL,0.0,0.0,True
-C37,"Perez, Young and Bridges",AU,FIN,0.0,0.0,False
-C38,Williamson Group,US,RETAIL,0.0,0.0,False
-C39,Tucker-Martinez,SG,ENERGY,0.0,0.0,False
-C40,"Santiago, Greene and Peters",US,FIN,0.0,0.0,False
-C41,Rogers LLC,JP,ENERGY,0.0,0.0,False
-C42,Orozco-Thompson,JP,TECH,0.0,0.0,False
-C43,"Bailey, Bates and Roberts",UK,RETAIL,0.0,0.0,False
-C44,Scott-Williams,UK,ENERGY,0.0,0.0,False
-C45,Parker-Price,DE,ENERGY,0.0,0.0,False
-C46,Martinez Inc,US,FOOD,0.0,0.0,False
-C47,Barnes Inc,JP,FOOD,0.0,0.0,False
-C48,"Rollins, Sherman and Hicks",SG,FIN,0.0,0.0,False
-C49,Nixon Group,UK,ENERGY,0.0,0.0,True
-C50,"Cook, Matthews and Dean",JP,RETAIL,0.0,0.0,False
-C51,Scott LLC,IN,ENERGY,0.0,0.0,False
-C52,Velazquez-Terry,US,MFG,0.0,0.0,False
-C53,Mayer Inc,IN,TECH,0.0,0.0,True
-C54,"Stanton, Hamilton and Ramirez",SG,MFG,0.0,0.0,False
-C55,Johnson-Alvarez,UK,MFG,0.0,0.0,False
-C56,Hart-Frye,FR,FOOD,0.0,0.0,False
-C57,Park-Vaughan,IN,ENERGY,0.0,0.0,False
-C58,"Berry, Johnson and Galvan",UK,TECH,0.0,0.0,True
-C59,Castro-Smith,AU,HEALTH,0.0,0.0,False
-C60,"Williams, Harmon and Stewart",US,FIN,0.0,0.0,False
-C61,"Gross, Christensen and Vasquez",US,ENERGY,0.0,0.0,False
-C62,Morgan-Hardin,IN,RETAIL,0.0,0.0,True
-C63,Jones Inc,JP,TECH,0.0,0.0,False
-C64,Peterson PLC,UK,ENERGY,0.0,0.0,False
-C65,Gomez and Sons,AU,ENERGY,0.0,0.0,False
-C66,Kelly-Wilkerson,AU,FIN,0.0,0.0,False
-C67,"Hayes, Knight and Barber",IN,FOOD,0.0,0.0,False
-C68,"Miles, Gutierrez and Hutchinson",FR,HEALTH,0.0,0.0,False
-C69,Little-Tran,SG,ENERGY,0.0,0.0,True
-C70,Jones-Ayala,FR,ENERGY,0.0,0.0,False
-C71,"Nichols, Taylor and Myers",DE,ENERGY,0.0,0.0,False
-C72,Parker PLC,UK,MFG,0.0,0.0,False
-C73,Johnson Inc,DE,ENERGY,0.0,0.0,False
-C74,White-Flynn,UK,RETAIL,0.0,0.0,False
-C75,Hughes Inc,DE,FIN,0.0,0.0,True
-C76,"Faulkner, Nelson and Cameron",UK,ENERGY,0.0,0.0,False
-C77,Lewis-Martin,JP,MFG,0.0,0.0,False
-C78,Brown Ltd,DE,RETAIL,0.0,0.0,False
-C79,Harris-Harris,DE,FOOD,0.0,0.0,False
-C80,Bush-Love,DE,RETAIL,0.0,0.0,False
-C81,Lewis Inc,IN,TECH,0.0,0.0,False
-C82,Hopkins Group,SG,FOOD,0.0,0.0,False
-C83,Crawford-Reynolds,US,MFG,0.0,0.0,False
-C84,"Blake, Wright and Lyons",FR,HEALTH,0.0,0.0,False
-C85,Martin-Cochran,AU,FIN,0.0,0.0,False
-C86,Turner PLC,IN,HEALTH,0.0,0.0,True
-C87,Williams-Bowen,IN,HEALTH,0.0,0.0,False
-C88,"Hodges, Kennedy and Mcdaniel",AU,ENERGY,0.0,0.0,False
-C89,Norris Inc,SG,FOOD,0.0,0.0,False
-C90,Ramirez Inc,IN,FIN,0.0,0.0,False
-C91,Gould and Sons,AU,HEALTH,0.0,0.0,False
-C92,Lynch-Jackson,IN,RETAIL,0.0,0.0,False
-C93,Thomas-Foster,US,TECH,0.0,0.0,False
-C94,Watkins PLC,DE,TECH,0.0,0.0,False
-C95,Powers-Howard,FR,MFG,0.0,0.0,False
-C96,"Booth, Brown and Allen",US,HEALTH,0.0,0.0,True
-C97,Davis-Brady,US,TECH,0.0,0.0,False
-C98,Foster and Sons,SG,TECH,0.0,0.0,False
-C99,"Nelson, Chandler and Acosta",FR,FOOD,0.0,0.0,False
-C100,"George, Rivera and White",AU,TECH,0.0,0.0,False
-C101,Rodriguez-Boyle,FR,FIN,0.0,0.0,False
-C102,Lopez-Nguyen,UK,RETAIL,0.0,0.0,True
-C103,"Jordan, Williams and Robinson",JP,FIN,0.0,0.0,False
-C104,Oneal-Washington,SG,MFG,0.0,0.0,False
-C105,"Arnold, Wise and Wagner",US,ENERGY,0.0,0.0,False
-C106,Farmer Ltd,FR,ENERGY,0.0,0.0,False
-C107,"Anthony, Jones and Gonzalez",SG,FOOD,0.0,0.0,False
-C108,Martinez-Merritt,US,FOOD,0.0,0.0,False
-C109,Jennings-Johnson,FR,HEALTH,0.0,0.0,True
-C110,"Henry, Harvey and Cuevas",IN,TECH,0.0,0.0,False
-C111,Griffith PLC,US,TECH,0.0,0.0,False
-C112,Meyer PLC,SG,ENERGY,0.0,0.0,False
-C113,Jones LLC,DE,ENERGY,0.0,0.0,False
-C114,Robbins Inc,DE,ENERGY,0.0,0.0,False
-C115,Miranda-Jones,IN,FOOD,0.0,0.0,False
-C116,"Bailey, Johnson and Rogers",SG,ENERGY,0.0,0.0,False
-C117,Morrison-Garcia,US,ENERGY,0.0,0.0,False
-C118,"Hardin, Murphy and Medina",JP,ENERGY,0.0,0.0,False
-C119,"Lloyd, Williams and Mccarthy",FR,ENERGY,0.0,0.0,False
-C120,Bennett LLC,IN,FIN,0.0,0.0,False
-C121,Thomas Group,FR,ENERGY,0.0,0.0,False
-C122,"Hall, Richardson and Austin",SG,HEALTH,0.0,0.0,False
-C123,"Collins, Graham and Johnson",AU,FOOD,0.0,0.0,False
-C124,Sexton-Phillips,JP,MFG,0.0,0.0,False
-C125,Wright LLC,SG,HEALTH,0.0,0.0,False
-C126,James-Paul,JP,RETAIL,0.0,0.0,True
-C127,"Palmer, Johnson and Kline",AU,TECH,0.0,0.0,True
-C128,Johnson and Sons,IN,ENERGY,0.0,0.0,False
-C129,"Fields, Soto and Smith",UK,RETAIL,0.0,0.0,False
-C130,Green Inc,US,FOOD,0.0,0.0,False
-C131,"Dunlap, Flowers and Scott",DE,HEALTH,0.0,0.0,False
-C132,Calhoun-Barnes,DE,MFG,0.0,0.0,False
-C133,Walton-James,DE,RETAIL,0.0,0.0,False
-C134,"Stevenson, Davis and Hansen",SG,MFG,0.0,0.0,False
-C135,Jones LLC,IN,TECH,0.0,0.0,False
-C136,"Hodges, Garza and Best",AU,RETAIL,0.0,0.0,False
-C137,"Sherman, Weber and Bryant",AU,ENERGY,0.0,0.0,False
-C138,Bruce-Johns,SG,FOOD,0.0,0.0,False
-C139,Boone and Sons,JP,HEALTH,0.0,0.0,True
-C140,White Ltd,SG,HEALTH,0.0,0.0,False
-C141,"Young, Powers and Cole",US,FIN,0.0,0.0,False
-C142,"Shepherd, Zimmerman and Williams",UK,FOOD,0.0,0.0,True
-C143,Crawford Ltd,SG,FOOD,0.0,0.0,False
-C144,Romero-Eaton,DE,TECH,0.0,0.0,False
-C145,"Paul, Little and Campbell",US,TECH,0.0,0.0,False
-C146,Cox Group,AU,TECH,0.0,0.0,False
-C147,Stephens-Stephens,IN,FOOD,0.0,0.0,False
-C148,"Mullins, Warner and Stokes",FR,RETAIL,0.0,0.0,False
-C149,Gonzalez LLC,SG,ENERGY,0.0,0.0,False
-C150,Weber Ltd,UK,MFG,0.0,0.0,True
-C151,"Hill, Short and Cardenas",IN,ENERGY,0.0,0.0,False
-C152,"Vasquez, Brown and Stevenson",AU,TECH,0.0,0.0,False
-C153,Knight-Castaneda,FR,TECH,0.0,0.0,False
-C154,"Reynolds, Vasquez and Hester",FR,TECH,0.0,0.0,False
-C155,Cardenas-Conley,DE,MFG,0.0,0.0,False
-C156,Welch-Henry,IN,RETAIL,0.0,0.0,False
-C157,Sutton LLC,AU,TECH,0.0,0.0,False
-C158,Martin and Sons,US,FOOD,0.0,0.0,False
-C159,"Smith, Howell and Allen",US,RETAIL,0.0,0.0,False
-C160,Spencer PLC,SG,FIN,0.0,0.0,False
-C161,Mitchell-Williams,FR,FIN,0.0,0.0,False
-C162,Duffy-Daniels,DE,FOOD,0.0,0.0,False
-C163,"Meza, Thompson and Clark",IN,RETAIL,0.0,0.0,False
-C164,Barker-Taylor,SG,TECH,0.0,0.0,False
-C165,Bishop-Lynch,DE,TECH,0.0,0.0,False
-C166,Hurley-Williams,DE,TECH,0.0,0.0,False
-C167,Hansen Ltd,SG,FIN,0.0,0.0,False
-C168,"Herrera, Hernandez and Murray",JP,ENERGY,0.0,0.0,False
-C169,Taylor-Carroll,UK,FIN,0.0,0.0,False
-C170,"Roy, Hoffman and Tapia",JP,RETAIL,0.0,0.0,False
-C171,Morgan Ltd,AU,HEALTH,0.0,0.0,False
-C172,Smith-Rollins,US,HEALTH,0.0,0.0,False
-C173,Page-Foster,UK,RETAIL,0.0,0.0,False
-C174,Dixon Ltd,DE,RETAIL,0.0,0.0,False
-C175,Ortega LLC,DE,MFG,0.0,0.0,False
-C176,Morales-Ruiz,JP,HEALTH,0.0,0.0,False
-C177,Morris PLC,DE,MFG,0.0,0.0,False
-C178,Boyd Group,DE,MFG,0.0,0.0,False
-C179,Hanson and Sons,US,HEALTH,0.0,0.0,True
-C180,"Perez, Erickson and Mcdowell",IN,FIN,0.0,0.0,False
-C181,"Nelson, Martinez and Mason",IN,TECH,0.0,0.0,False
-C182,Duncan-Preston,IN,FIN,0.0,0.0,False
-C183,"Jones, Collins and Miller",IN,MFG,0.0,0.0,False
-C184,Potter-Morris,UK,FIN,0.0,0.0,True
-C185,Vasquez LLC,US,MFG,0.0,0.0,False
-C186,Stokes Inc,DE,TECH,0.0,0.0,False
-C187,"Mcmillan, Allen and Mitchell",SG,FOOD,0.0,0.0,False
-C188,Webb Group,UK,RETAIL,0.0,0.0,False
-C189,"Brown, Ewing and Kramer",FR,FIN,0.0,0.0,True
-C190,"Leblanc, Scott and Jones",AU,FIN,0.0,0.0,False
-C191,Evans-Valenzuela,UK,FOOD,0.0,0.0,False
-C192,Garcia Group,FR,MFG,0.0,0.0,False
-C193,Curtis Group,UK,FIN,0.0,0.0,False
-C194,Gonzalez-Evans,US,TECH,0.0,0.0,False
-C195,Holloway-Keith,AU,FOOD,0.0,0.0,False
-C196,Wilson Inc,JP,FIN,0.0,0.0,False
-C197,"Cohen, Murphy and Barnes",AU,FIN,0.0,0.0,False
-C198,"Johnson, Eaton and Davis",DE,MFG,0.0,0.0,False
-C199,Frye-Castillo,JP,MFG,0.0,0.0,False
-C200,Young-Steele,SG,FIN,0.0,0.0,False
-C201,"Lowe, Bell and Neal",UK,RETAIL,0.0,0.0,False
-C202,"Blankenship, Burns and Hill",IN,HEALTH,0.0,0.0,False
-C203,Brown-Russell,DE,HEALTH,0.0,0.0,False
-C204,Smith Group,DE,TECH,0.0,0.0,False
-C205,"Holt, Torres and Kennedy",US,FOOD,0.0,0.0,True
-C206,"Long, Nelson and Sanders",JP,HEALTH,0.0,0.0,False
-C207,"Richard, Jackson and Ray",JP,RETAIL,0.0,0.0,False
-C208,"Bowman, Nixon and Scott",AU,MFG,0.0,0.0,False
-C209,Carroll-Ellis,DE,TECH,0.0,0.0,False
-C210,"Martinez, Guzman and Patel",DE,HEALTH,0.0,0.0,False
-C211,"Ray, Crawford and Christensen",UK,TECH,0.0,0.0,False
-C212,Garcia-Ray,US,ENERGY,0.0,0.0,False
-C213,Hudson Inc,IN,ENERGY,0.0,0.0,False
-C214,Ross-Jones,US,MFG,0.0,0.0,False
-C215,Clarke Group,DE,MFG,0.0,0.0,True
-C216,Medina-Powers,SG,FIN,0.0,0.0,False
-C217,Williams-Murray,JP,RETAIL,0.0,0.0,False
-C218,Sanchez Ltd,AU,HEALTH,0.0,0.0,False
-C219,Stewart-Thomas,DE,ENERGY,0.0,0.0,False
-C220,"Smith, Daniels and Boyd",AU,ENERGY,0.0,0.0,False
-C221,Barber-Gonzalez,FR,MFG,0.0,0.0,False
-C222,Jones and Sons,SG,RETAIL,0.0,0.0,False
-C223,Phillips PLC,AU,ENERGY,0.0,0.0,False
-C224,Miller-Chambers,AU,FOOD,0.0,0.0,False
-C225,Ruiz LLC,SG,HEALTH,0.0,0.0,False
-C226,"Watson, Tanner and Malone",UK,HEALTH,0.0,0.0,False
-C227,Lambert PLC,AU,RETAIL,0.0,0.0,False
-C228,"Burton, Ford and Davis",IN,FOOD,0.0,0.0,False
-C229,"Odonnell, Harris and Hughes",JP,MFG,0.0,0.0,True
-C230,Hoover Ltd,AU,HEALTH,0.0,0.0,False
-C231,Costa PLC,DE,ENERGY,0.0,0.0,True
-C232,Curry-Perez,US,FOOD,0.0,0.0,True
-C233,Watkins Inc,SG,ENERGY,0.0,0.0,False
-C234,Shepard-Taylor,US,TECH,0.0,0.0,False
-C235,Moore-Holmes,DE,MFG,0.0,0.0,False
-C236,Chavez-Austin,FR,FIN,0.0,0.0,True
-C237,"Gates, Wagner and Allen",SG,FOOD,0.0,0.0,False
-C238,Lopez-Parker,US,FIN,0.0,0.0,False
-C239,Ramsey-Robles,UK,MFG,0.0,0.0,False
-C240,Price-Phillips,SG,RETAIL,0.0,0.0,True
-C241,Johnson PLC,DE,MFG,0.0,0.0,False
-C242,Kelly Group,UK,TECH,0.0,0.0,False
-C243,Davis-Hunt,UK,RETAIL,0.0,0.0,True
-C244,"Johnson, Jones and Long",UK,FOOD,0.0,0.0,False
-C245,Waters-Choi,AU,TECH,0.0,0.0,False
-C246,"Blackburn, Hamilton and White",IN,ENERGY,0.0,0.0,False
-C247,Warner-Ramirez,DE,FOOD,0.0,0.0,False
-C248,Simmons-Robinson,SG,FOOD,0.0,0.0,False
-C249,"Fisher, Hogan and Terry",UK,FOOD,0.0,0.0,False
-C250,Tran-Peterson,UK,FIN,0.0,0.0,False
-C251,Frederick-Baker,DE,ENERGY,0.0,0.0,False
-C252,"Bradley, Hall and Mitchell",FR,FOOD,0.0,0.0,False
-C253,Duarte-Park,JP,MFG,0.0,0.0,False
-C254,Mccoy and Sons,SG,MFG,0.0,0.0,False
-C255,"Clark, Sutton and Gutierrez",US,FOOD,0.0,0.0,False
-C256,Wagner Inc,IN,FOOD,0.0,0.0,False
-C257,Park Ltd,SG,MFG,0.0,0.0,False
-C258,Rodriguez Group,UK,HEALTH,0.0,0.0,False
-C259,Taylor Ltd,IN,ENERGY,0.0,0.0,False
-C260,Parker LLC,FR,RETAIL,0.0,0.0,False
-C261,"Scott, Johnson and Mills",UK,RETAIL,0.0,0.0,False
-C262,Jimenez-Smith,IN,ENERGY,0.0,0.0,False
-C263,Peterson Group,FR,HEALTH,0.0,0.0,False
-C264,Rodriguez and Sons,AU,ENERGY,0.0,0.0,False
-C265,"Harrell, Jarvis and Johnson",AU,TECH,0.0,0.0,False
-C266,Scott and Sons,UK,ENERGY,0.0,0.0,False
-C267,Becker LLC,JP,HEALTH,0.0,0.0,False
-C268,Mcdonald PLC,AU,TECH,0.0,0.0,False
-C269,"Davis, Vargas and Smith",AU,FOOD,0.0,0.0,False
-C270,"Ball, Mcdaniel and Sampson",FR,FIN,0.0,0.0,False
-C271,Page-Gonzalez,UK,MFG,0.0,0.0,False
-C272,Potter Inc,AU,ENERGY,0.0,0.0,True
-C273,"Webb, Edwards and Cook",FR,RETAIL,0.0,0.0,False
-C274,"Jones, Brown and Ramirez",FR,FOOD,0.0,0.0,False
-C275,Perkins-Greer,SG,FOOD,0.0,0.0,False
-C276,Tucker-Rowe,JP,RETAIL,0.0,0.0,False
-C277,Smith-Lawrence,DE,RETAIL,0.0,0.0,False
-C278,Sullivan LLC,US,MFG,0.0,0.0,False
-C279,Stuart Ltd,IN,RETAIL,0.0,0.0,False
-C280,Sparks Inc,FR,ENERGY,0.0,0.0,False
-C281,Oconnor Group,IN,RETAIL,0.0,0.0,False
-C282,Rodriguez-Wilson,JP,FOOD,0.0,0.0,False
-C283,Davis-Smith,SG,FOOD,0.0,0.0,False
-C284,"Humphrey, Christian and Gordon",US,HEALTH,0.0,0.0,False
-C285,Harrison PLC,AU,MFG,0.0,0.0,False
-C286,"Anderson, Jones and Jackson",DE,FOOD,0.0,0.0,False
-C287,Holmes-Murphy,FR,FOOD,0.0,0.0,False
-C288,Fry-Miller,US,TECH,0.0,0.0,False
-C289,"Cochran, Schaefer and Howe",DE,TECH,0.0,0.0,False
-C290,"Rodriguez, Weiss and Burnett",AU,FOOD,0.0,0.0,False
-C291,Johnson LLC,SG,TECH,0.0,0.0,False
-C292,"Miller, Anderson and Parrish",FR,TECH,0.0,0.0,False
-C293,"Mercado, Copeland and Martin",SG,RETAIL,0.0,0.0,False
-C294,"Lawrence, Snow and Atkinson",DE,FOOD,0.0,0.0,True
-C295,Pratt-Sanchez,AU,ENERGY,0.0,0.0,False
-C296,Allen Ltd,JP,FIN,0.0,0.0,False
-C297,Davenport LLC,FR,HEALTH,0.0,0.0,False
-C298,Ramirez Ltd,DE,TECH,0.0,0.0,True
-C299,"Dunn, Ross and Davis",SG,HEALTH,0.0,0.0,False
-C300,Bailey-Reynolds,IN,FIN,0.0,0.0,False
-C301,James Inc,AU,MFG,0.0,0.0,False
-C302,Allen-Zuniga,AU,FOOD,0.0,0.0,False
-C303,Garcia and Sons,UK,ENERGY,0.0,0.0,False
-C304,Bryan and Sons,DE,MFG,0.0,0.0,False
-C305,Allen-Clayton,DE,TECH,0.0,0.0,True
-C306,Santos-Garcia,IN,ENERGY,0.0,0.0,False
-C307,"Gould, Lopez and Huffman",SG,FIN,0.0,0.0,False
-C308,King Inc,IN,FIN,0.0,0.0,False
-C309,Ortiz and Sons,AU,RETAIL,0.0,0.0,False
-C310,Hodges-Cohen,US,ENERGY,0.0,0.0,False
-C311,Larsen LLC,SG,FIN,0.0,0.0,True
-C312,Roman Inc,DE,FIN,0.0,0.0,False
-C313,"Franco, Pruitt and Jimenez",DE,TECH,0.0,0.0,False
-C314,Larson-Johnson,JP,TECH,0.0,0.0,False
-C315,Ross and Sons,IN,TECH,0.0,0.0,False
-C316,Miller Ltd,JP,MFG,0.0,0.0,False
-C317,Horn-Davis,DE,TECH,0.0,0.0,False
-C318,Jimenez Group,FR,HEALTH,0.0,0.0,False
-C319,Vaughn PLC,AU,ENERGY,0.0,0.0,False
-C320,Kelly-Peters,DE,ENERGY,0.0,0.0,False
-C321,"Scott, Mejia and Bradley",US,FIN,0.0,0.0,False
-C322,Johnson-Gamble,UK,FIN,0.0,0.0,False
-C323,Dixon Group,UK,MFG,0.0,0.0,False
-C324,Roberts-Kennedy,IN,RETAIL,0.0,0.0,False
-C325,"Hughes, Zimmerman and Chapman",IN,ENERGY,0.0,0.0,False
-C326,"Hernandez, Villarreal and Reynolds",US,FOOD,0.0,0.0,False
-C327,James-Swanson,SG,MFG,0.0,0.0,True
-C328,"Cobb, Arnold and Carson",UK,FOOD,0.0,0.0,False
-C329,Parks-Wilson,SG,FIN,0.0,0.0,False
-C330,"Zamora, Benton and Barnett",AU,FIN,0.0,0.0,True
-C331,Patterson and Sons,US,MFG,0.0,0.0,True
-C332,"White, Welch and Jackson",FR,FIN,0.0,0.0,False
-C333,"Mitchell, Benson and Gonzalez",US,FOOD,0.0,0.0,False
-C334,"Oconnor, Farrell and Harris",JP,TECH,0.0,0.0,False
-C335,Ray and Sons,JP,FOOD,0.0,0.0,False
-C336,Stokes PLC,FR,FIN,0.0,0.0,False
-C337,Harrison LLC,JP,ENERGY,0.0,0.0,False
-C338,"Tate, Villa and Butler",SG,TECH,0.0,0.0,False
-C339,"Christensen, Ruiz and Downs",AU,FIN,0.0,0.0,False
-C340,Bailey-Kelley,IN,RETAIL,0.0,0.0,False
-C341,"Andrews, Hall and Mcdonald",IN,RETAIL,0.0,0.0,False
-C342,George-Ferguson,DE,FIN,0.0,0.0,False
-C343,Bates-Patrick,JP,FIN,0.0,0.0,False
-C344,Matthews-Austin,AU,RETAIL,0.0,0.0,False
-C345,"Frank, Kelly and Turner",DE,FOOD,0.0,0.0,False
-C346,Adkins-Estes,US,ENERGY,0.0,0.0,True
-C347,"Simmons, White and Brown",DE,RETAIL,0.0,0.0,False
-C348,Gomez-Dunn,DE,HEALTH,0.0,0.0,False
-C349,Foster Group,IN,TECH,0.0,0.0,False
-C350,Jones-Jimenez,AU,MFG,0.0,0.0,False
-C351,Wallace LLC,FR,FOOD,0.0,0.0,False
-C352,Smith Group,AU,MFG,0.0,0.0,False
-C353,Cordova-Garrett,US,ENERGY,0.0,0.0,False
-C354,Warner Group,AU,ENERGY,0.0,0.0,False
-C355,Wang Group,US,RETAIL,0.0,0.0,False
-C356,Webb-Baker,AU,ENERGY,0.0,0.0,False
-C357,"Simpson, Scott and Robinson",JP,FIN,0.0,0.0,False
-C358,Moreno-Taylor,UK,FIN,0.0,0.0,True
-C359,Brown LLC,UK,ENERGY,0.0,0.0,False
-C360,Mccann Group,FR,ENERGY,0.0,0.0,False
-C361,Martinez Group,SG,ENERGY,0.0,0.0,False
-C362,Jackson Inc,US,HEALTH,0.0,0.0,False
-C363,Shaw PLC,IN,MFG,0.0,0.0,False
-C364,Fisher and Sons,SG,HEALTH,0.0,0.0,False
-C365,Hoffman-Smith,UK,FIN,0.0,0.0,False
-C366,Martin Inc,UK,MFG,0.0,0.0,False
-C367,"Pugh, Clark and Newman",DE,FOOD,0.0,0.0,False
-C368,"Cook, Lopez and Rodriguez",UK,HEALTH,0.0,0.0,False
-C369,Sullivan-Moore,IN,RETAIL,0.0,0.0,True
-C370,Estrada-Nguyen,FR,RETAIL,0.0,0.0,False
-C371,Rhodes Inc,IN,MFG,0.0,0.0,False
-C372,Contreras and Sons,IN,HEALTH,0.0,0.0,True
-C373,Williams-Schaefer,FR,HEALTH,0.0,0.0,False
-C374,Kirk LLC,UK,ENERGY,0.0,0.0,False
-C375,"Higgins, Rollins and Cross",AU,TECH,0.0,0.0,False
-C376,Olson-Welch,DE,ENERGY,0.0,0.0,False
-C377,"Martinez, Flynn and Larsen",US,ENERGY,0.0,0.0,False
-C378,Burton LLC,US,RETAIL,0.0,0.0,False
-C379,Williams-Thomas,IN,FIN,0.0,0.0,False
-C380,Dixon LLC,DE,HEALTH,0.0,0.0,False
-C381,Gay and Sons,IN,RETAIL,0.0,0.0,False
-C382,Keller-Nichols,UK,MFG,0.0,0.0,False
-C383,"Roberts, Robinson and Roth",JP,FOOD,0.0,0.0,False
-C384,Smith-White,FR,FOOD,0.0,0.0,False
-C385,Myers-Evans,JP,FOOD,0.0,0.0,False
-C386,"Crosby, Flowers and Wilson",IN,FIN,0.0,0.0,False
-C387,"Hicks, Johnson and Long",DE,TECH,0.0,0.0,False
-C388,Williams-Rios,DE,HEALTH,0.0,0.0,False
-C389,"Zimmerman, Duran and Carter",AU,RETAIL,0.0,0.0,False
-C390,Noble-Smith,JP,FIN,0.0,0.0,False
-C391,"Hall, Sparks and Wade",AU,HEALTH,0.0,0.0,False
-C392,"Beard, Jones and Singleton",UK,FIN,0.0,0.0,False
-C393,"Torres, Allen and Wolf",IN,FIN,0.0,0.0,False
-C394,"Galvan, Stewart and Freeman",US,MFG,0.0,0.0,False
-C395,Rogers-Pham,SG,HEALTH,0.0,0.0,False
-C396,Johnson PLC,SG,MFG,0.0,0.0,False
-C397,"Blackwell, Curry and Molina",IN,TECH,0.0,0.0,False
-C398,Patrick-Gallagher,US,FIN,0.0,0.0,False
-C399,"Ramos, Mejia and Williams",FR,TECH,0.0,0.0,True
-C400,Underwood Inc,US,HEALTH,0.0,0.0,False
-C401,Thomas Group,AU,FOOD,0.0,0.0,False
-C402,Pena-Hernandez,US,RETAIL,0.0,0.0,False
-C403,"Johnson, Lawrence and Conway",AU,TECH,0.0,0.0,False
-C404,"Alvarado, Lopez and Jones",DE,FIN,0.0,0.0,False
-C405,Moore-Estes,AU,HEALTH,0.0,0.0,False
-C406,Nelson Group,FR,MFG,0.0,0.0,False
-C407,"Reeves, Buckley and Savage",SG,MFG,0.0,0.0,False
-C408,"Reynolds, Burke and Rogers",IN,FIN,0.0,0.0,False
-C409,Torres Group,UK,FOOD,0.0,0.0,False
-C410,"Moore, Rasmussen and Hinton",US,MFG,0.0,0.0,False
-C411,"Clark, Hartman and Price",US,HEALTH,0.0,0.0,False
-C412,Myers Ltd,US,FIN,0.0,0.0,False
-C413,"Evans, Melendez and Washington",AU,HEALTH,0.0,0.0,False
-C414,Trevino-White,FR,TECH,0.0,0.0,False
-C415,"Pineda, Park and Ball",FR,HEALTH,0.0,0.0,True
-C416,Dixon PLC,DE,FOOD,0.0,0.0,False
-C417,"Hanson, Gonzales and Taylor",JP,RETAIL,0.0,0.0,False
-C418,Fowler-Lewis,US,FIN,0.0,0.0,False
-C419,"Miller, Mccoy and Atkins",DE,TECH,0.0,0.0,False
-C420,Reyes-Petersen,IN,TECH,0.0,0.0,False
-C421,"Kelly, Taylor and Hill",AU,ENERGY,0.0,0.0,False
-C422,"Wilson, Bradley and Roach",DE,FOOD,0.0,0.0,False
-C423,Smith-Wise,US,HEALTH,0.0,0.0,False
-C424,"Serrano, Huber and Obrien",AU,MFG,0.0,0.0,False
-C425,Wilson-Newman,FR,FIN,0.0,0.0,False
-C426,Lopez-Green,SG,RETAIL,0.0,0.0,False
-C427,Francis Ltd,SG,FIN,0.0,0.0,False
-C428,"Williams, Cole and Peterson",AU,ENERGY,0.0,0.0,False
-C429,Richardson-Miller,UK,MFG,0.0,0.0,False
-C430,Smith LLC,SG,TECH,0.0,0.0,False
-C431,Juarez Group,FR,TECH,0.0,0.0,False
-C432,"Martinez, Hines and Thomas",UK,HEALTH,0.0,0.0,False
-C433,Smith Ltd,DE,TECH,0.0,0.0,False
-C434,Cruz-Parsons,FR,RETAIL,0.0,0.0,False
-C435,Novak LLC,US,TECH,0.0,0.0,False
-C436,Silva-Walters,SG,TECH,0.0,0.0,False
-C437,Obrien LLC,JP,TECH,0.0,0.0,False
-C438,Rivera and Sons,IN,HEALTH,0.0,0.0,False
-C439,Ramos Group,UK,RETAIL,0.0,0.0,False
-C440,Garrett-James,US,HEALTH,0.0,0.0,False
-C441,Ramirez-Thompson,JP,MFG,0.0,0.0,False
-C442,Richardson PLC,FR,RETAIL,0.0,0.0,False
-C443,Calderon Inc,AU,HEALTH,0.0,0.0,False
-C444,"Lewis, Todd and Hernandez",JP,RETAIL,0.0,0.0,True
-C445,Boyle Group,FR,MFG,0.0,0.0,False
-C446,Rosales Ltd,UK,MFG,0.0,0.0,False
-C447,"Calderon, White and Perkins",FR,HEALTH,0.0,0.0,False
-C448,Johnson Inc,IN,FOOD,0.0,0.0,False
-C449,Terrell-Rush,AU,HEALTH,0.0,0.0,False
-C450,"Gonzalez, Chandler and Lamb",AU,ENERGY,0.0,0.0,False
-C451,Rice-Gibbs,UK,MFG,0.0,0.0,False
-C452,Williams Ltd,AU,ENERGY,0.0,0.0,False
-C453,Moss Group,US,HEALTH,0.0,0.0,False
-C454,"Thompson, Fisher and Jacobs",DE,MFG,0.0,0.0,False
-C455,Bullock-Colon,IN,MFG,0.0,0.0,False
-C456,Bennett-King,DE,RETAIL,0.0,0.0,False
-C457,Jackson Group,AU,TECH,0.0,0.0,False
-C458,"Smith, Smith and Paul",US,FOOD,0.0,0.0,False
-C459,"Taylor, Bond and Gonzalez",IN,MFG,0.0,0.0,False
-C460,Long PLC,US,HEALTH,0.0,0.0,False
-C461,"Solis, Snyder and Crane",DE,FOOD,0.0,0.0,False
-C462,Howard Inc,UK,FOOD,0.0,0.0,False
-C463,Bonilla PLC,FR,ENERGY,0.0,0.0,False
-C464,Martinez LLC,DE,TECH,0.0,0.0,False
-C465,"Johnson, Rice and Brooks",FR,MFG,0.0,0.0,False
-C466,Perez-Chaney,IN,FIN,0.0,0.0,False
-C467,"Mcgee, Burke and Romero",JP,ENERGY,0.0,0.0,True
-C468,Payne-Medina,US,FOOD,0.0,0.0,False
-C469,Ramirez Inc,FR,HEALTH,0.0,0.0,False
-C470,Hill LLC,IN,FIN,0.0,0.0,False
-C471,Nichols-Berry,IN,FOOD,0.0,0.0,False
-C472,White LLC,UK,FOOD,0.0,0.0,False
-C473,"Elliott, Wood and Reyes",SG,ENERGY,0.0,0.0,False
-C474,Hammond PLC,DE,RETAIL,0.0,0.0,False
-C475,"Campbell, Whitehead and Mack",IN,MFG,0.0,0.0,False
-C476,Rogers-Anderson,DE,TECH,0.0,0.0,False
-C477,"Johnson, Cobb and Peterson",JP,HEALTH,0.0,0.0,False
-C478,Smith-Hicks,SG,FOOD,0.0,0.0,False
-C479,Richards PLC,SG,MFG,0.0,0.0,False
-C480,Peters LLC,FR,FOOD,0.0,0.0,False
-C481,Jones Group,AU,RETAIL,0.0,0.0,False
-C482,Hobbs Inc,IN,TECH,0.0,0.0,False
-C483,Reyes-Brown,AU,HEALTH,0.0,0.0,False
-C484,Kirby PLC,DE,RETAIL,0.0,0.0,True
-C485,"Bauer, Oconnor and Bennett",AU,FIN,0.0,0.0,False
-C486,Brewer Inc,AU,FIN,0.0,0.0,False
-C487,Carlson-Blake,UK,FIN,0.0,0.0,False
-C488,Gutierrez-Simmons,DE,MFG,0.0,0.0,False
-C489,Jacobs Inc,FR,ENERGY,0.0,0.0,True
-C490,Johnson-Roberts,IN,RETAIL,0.0,0.0,False
-C491,"Dominguez, Taylor and Blair",DE,ENERGY,0.0,0.0,True
-C492,"Ross, Cox and Clark",UK,ENERGY,0.0,0.0,False
-C493,Michael-Allen,JP,TECH,0.0,0.0,False
-C494,Navarro LLC,US,RETAIL,0.0,0.0,False
-C495,"Thomas, Bell and Mills",SG,FIN,0.0,0.0,False
-C496,Garrett-Pitts,JP,MFG,0.0,0.0,False
-C497,"Wilson, Hudson and Mcintosh",SG,FIN,0.0,0.0,False
-C498,"Torres, Turner and Miller",US,FIN,0.0,0.0,False
-C499,"Gonzalez, Dorsey and Roberts",UK,RETAIL,0.0,0.0,False
+C0,Carpenter-Scott,UK,HEALTH,0.0,0.0,False
+C1,Mccarthy Group,SG,MFG,0.0,0.0,False
+C2,"Welch, Kennedy and Dennis",US,FIN,0.0,0.0,False
+C3,"Miller, Mathews and Cantrell",US,ENERGY,0.0,0.0,False
+C4,Neal-White,JP,HEALTH,0.0,0.0,False
+C5,"Torres, Hill and Murphy",AU,HEALTH,0.0,0.0,True
+C6,Solomon Group,IN,ENERGY,0.0,0.0,False
+C7,Ballard and Sons,SG,FIN,0.0,0.0,True
+C8,Young-Martinez,JP,RETAIL,0.0,0.0,False
+C9,Lee Ltd,DE,HEALTH,0.0,0.0,False
+C10,Perez PLC,UK,ENERGY,0.0,0.0,False
+C11,"Phillips, Franco and Andrews",DE,FIN,0.0,0.0,False
+C12,"Hines, Davis and Grant",US,HEALTH,0.0,0.0,False
+C13,"Williams, Olson and Bryant",UK,TECH,0.0,0.0,False
+C14,Villa-Cox,JP,FIN,0.0,0.0,False
+C15,"Ross, Pena and Serrano",UK,RETAIL,0.0,0.0,False
+C16,Chapman PLC,US,MFG,0.0,0.0,False
+C17,Levy-Wagner,DE,RETAIL,0.0,0.0,False
+C18,Hunt-Griffin,JP,MFG,0.0,0.0,False
+C19,"Collins, Arnold and Acosta",DE,FOOD,0.0,0.0,False
+C20,"Henderson, Cortez and Payne",JP,TECH,0.0,0.0,False
+C21,Cantu Ltd,DE,MFG,0.0,0.0,False
+C22,Ford-King,IN,MFG,0.0,0.0,False
+C23,Martin-Bennett,AU,TECH,0.0,0.0,False
+C24,Snyder-Williams,SG,TECH,0.0,0.0,False
+C25,Bradford-Chavez,AU,ENERGY,0.0,0.0,False
+C26,Mcbride PLC,IN,RETAIL,0.0,0.0,False
+C27,Jacobs-Adams,US,MFG,0.0,0.0,True
+C28,Dennis-Smith,AU,HEALTH,0.0,0.0,False
+C29,Harper-Mclaughlin,IN,RETAIL,0.0,0.0,False
+C30,Wu PLC,AU,MFG,0.0,0.0,False
+C31,Beard Ltd,JP,FOOD,0.0,0.0,False
+C32,Collier LLC,US,TECH,0.0,0.0,False
+C33,"Farmer, Rivera and Taylor",IN,FOOD,0.0,0.0,False
+C34,Rose-Le,US,ENERGY,0.0,0.0,False
+C35,Jones-Greene,UK,TECH,0.0,0.0,False
+C36,Alvarez-Montgomery,FR,FIN,0.0,0.0,False
+C37,"Ross, Serrano and Cox",AU,ENERGY,0.0,0.0,False
+C38,"Jones, Miller and Johnson",UK,TECH,0.0,0.0,False
+C39,"Bush, Hayden and Saunders",US,ENERGY,0.0,0.0,True
+C40,"Warner, Lawson and Rivera",SG,TECH,0.0,0.0,False
+C41,"Rivera, Lara and Martin",IN,HEALTH,0.0,0.0,False
+C42,Murphy-Martin,AU,FIN,0.0,0.0,False
+C43,"Carlson, Zimmerman and Snyder",DE,FOOD,0.0,0.0,False
+C44,Smith and Sons,IN,ENERGY,0.0,0.0,False
+C45,"Higgins, Butler and Campbell",JP,FOOD,0.0,0.0,True
+C46,Browning LLC,AU,MFG,0.0,0.0,False
+C47,Schwartz and Sons,JP,FIN,0.0,0.0,False
+C48,Bradshaw Inc,IN,TECH,0.0,0.0,False
+C49,Warner-Montoya,DE,HEALTH,0.0,0.0,False
+C50,"Bowen, Moore and Cooper",JP,MFG,0.0,0.0,False
+C51,Ortega and Sons,AU,RETAIL,0.0,0.0,False
+C52,"Brown, Hines and Walker",US,FOOD,0.0,0.0,False
+C53,York-Wright,US,ENERGY,0.0,0.0,False
+C54,Morales-Harvey,AU,FOOD,0.0,0.0,False
+C55,"Knox, Brewer and Dalton",DE,RETAIL,0.0,0.0,False
+C56,"Brady, Brady and Becker",US,ENERGY,0.0,0.0,True
+C57,Stevens-Smith,IN,FOOD,0.0,0.0,True
+C58,"Mays, Patterson and Deleon",JP,TECH,0.0,0.0,False
+C59,Rowland LLC,FR,TECH,0.0,0.0,False
+C60,"Richardson, Horn and Schmidt",IN,FOOD,0.0,0.0,False
+C61,James Ltd,SG,FIN,0.0,0.0,False
+C62,Nelson-Johnson,US,MFG,0.0,0.0,False
+C63,Peters PLC,UK,FIN,0.0,0.0,False
+C64,Luna-Howell,JP,TECH,0.0,0.0,True
+C65,Collins-Bishop,AU,RETAIL,0.0,0.0,False
+C66,"Smith, Baker and Murphy",JP,RETAIL,0.0,0.0,False
+C67,Klein LLC,UK,RETAIL,0.0,0.0,False
+C68,"Cole, Wallace and Bond",SG,TECH,0.0,0.0,False
+C69,Cunningham-Brown,US,HEALTH,0.0,0.0,False
+C70,"Smith, Medina and Lester",FR,MFG,0.0,0.0,False
+C71,Oliver-Beck,US,RETAIL,0.0,0.0,False
+C72,Jackson Inc,US,HEALTH,0.0,0.0,False
+C73,"Ashley, Mcmillan and Walker",FR,TECH,0.0,0.0,False
+C74,Watkins Inc,JP,MFG,0.0,0.0,False
+C75,Scott-Hess,US,FIN,0.0,0.0,False
+C76,Valencia Ltd,IN,FOOD,0.0,0.0,False
+C77,Cole-Smith,FR,MFG,0.0,0.0,False
+C78,"Smith, Trevino and Jackson",FR,TECH,0.0,0.0,False
+C79,Alvarez-Oneal,SG,ENERGY,0.0,0.0,False
+C80,Henderson-Jackson,AU,FIN,0.0,0.0,False
+C81,"Jones, Mathis and Taylor",JP,HEALTH,0.0,0.0,False
+C82,Medina-Rivera,US,HEALTH,0.0,0.0,False
+C83,Austin-Farmer,SG,MFG,0.0,0.0,False
+C84,"Tyler, Hickman and Love",AU,FIN,0.0,0.0,False
+C85,Lee LLC,DE,HEALTH,0.0,0.0,False
+C86,Thornton-Oneal,SG,HEALTH,0.0,0.0,False
+C87,Roberts-Scott,IN,TECH,0.0,0.0,True
+C88,Keller-Lee,FR,RETAIL,0.0,0.0,False
+C89,"Arnold, Brooks and Ponce",FR,FOOD,0.0,0.0,False
+C90,Hines Group,AU,FOOD,0.0,0.0,False
+C91,Walters-Cordova,DE,FOOD,0.0,0.0,False
+C92,Marks-Sheppard,US,FIN,0.0,0.0,False
+C93,George-Vazquez,JP,ENERGY,0.0,0.0,False
+C94,"Bauer, Hernandez and Villarreal",UK,MFG,0.0,0.0,False
+C95,Mejia Group,SG,HEALTH,0.0,0.0,False
+C96,Garza-Koch,DE,RETAIL,0.0,0.0,False
+C97,Young and Sons,DE,TECH,0.0,0.0,True
+C98,Harris-Mcknight,DE,RETAIL,0.0,0.0,False
+C99,"Rodgers, Vaughn and Martin",AU,RETAIL,0.0,0.0,False
+C100,"Brown, Bautista and Carlson",US,FOOD,0.0,0.0,False
+C101,Sullivan Group,JP,TECH,0.0,0.0,False
+C102,Cox-Johnson,IN,ENERGY,0.0,0.0,False
+C103,Owens Ltd,FR,MFG,0.0,0.0,False
+C104,Young Ltd,DE,TECH,0.0,0.0,False
+C105,Knight and Sons,US,RETAIL,0.0,0.0,False
+C106,"Waller, Bradley and Moore",JP,MFG,0.0,0.0,False
+C107,Hebert PLC,US,TECH,0.0,0.0,False
+C108,"Bean, Lewis and Ballard",SG,MFG,0.0,0.0,False
+C109,"Robinson, Beck and Nunez",JP,FOOD,0.0,0.0,False
+C110,"Orozco, Davis and Nichols",SG,TECH,0.0,0.0,False
+C111,Grant-Bennett,FR,TECH,0.0,0.0,False
+C112,Pierce and Sons,UK,ENERGY,0.0,0.0,False
+C113,Schneider Ltd,UK,ENERGY,0.0,0.0,True
+C114,Wheeler LLC,SG,FOOD,0.0,0.0,True
+C115,"Griffin, Lee and Wang",SG,ENERGY,0.0,0.0,True
+C116,"Jones, Gilbert and Weeks",JP,TECH,0.0,0.0,False
+C117,"Shields, Sutton and Black",FR,RETAIL,0.0,0.0,False
+C118,Martinez-Marks,US,HEALTH,0.0,0.0,False
+C119,Peterson-Lopez,UK,RETAIL,0.0,0.0,False
+C120,Hill-Hull,FR,FOOD,0.0,0.0,False
+C121,Smith-Davis,SG,FOOD,0.0,0.0,False
+C122,Ramirez-Hill,AU,FIN,0.0,0.0,False
+C123,Chavez Inc,AU,FOOD,0.0,0.0,False
+C124,Garcia and Sons,UK,HEALTH,0.0,0.0,True
+C125,Wilson-Miller,FR,HEALTH,0.0,0.0,False
+C126,"Powers, Wiley and James",UK,HEALTH,0.0,0.0,False
+C127,Thornton-Hernandez,SG,FOOD,0.0,0.0,False
+C128,"Ramos, Graves and Lara",FR,ENERGY,0.0,0.0,False
+C129,Camacho LLC,US,MFG,0.0,0.0,True
+C130,Garcia-Meyer,AU,TECH,0.0,0.0,False
+C131,"Meyers, Jones and Franklin",JP,FIN,0.0,0.0,False
+C132,Gallegos-Lopez,UK,ENERGY,0.0,0.0,False
+C133,Park-Campbell,IN,HEALTH,0.0,0.0,True
+C134,Bailey-Hancock,US,ENERGY,0.0,0.0,False
+C135,Mooney-Fischer,US,FOOD,0.0,0.0,False
+C136,Vaughan Group,SG,MFG,0.0,0.0,False
+C137,"Mendez, Ward and Hunter",JP,FOOD,0.0,0.0,False
+C138,"Kirk, Thompson and Chung",UK,FOOD,0.0,0.0,False
+C139,Jacobs-Stanley,FR,FIN,0.0,0.0,True
+C140,"Young, Arroyo and Garner",IN,FIN,0.0,0.0,False
+C141,Fry and Sons,DE,MFG,0.0,0.0,False
+C142,Lawrence-Wilson,FR,FOOD,0.0,0.0,False
+C143,"Martinez, Bennett and Sanders",DE,RETAIL,0.0,0.0,False
+C144,"Watts, Dunn and Mcfarland",SG,ENERGY,0.0,0.0,False
+C145,Riley-Jackson,UK,FIN,0.0,0.0,False
+C146,Clark Group,JP,TECH,0.0,0.0,False
+C147,Sanders-Hart,FR,ENERGY,0.0,0.0,False
+C148,Stokes-Boyer,IN,MFG,0.0,0.0,False
+C149,Payne-Beard,SG,HEALTH,0.0,0.0,False
+C150,Melton and Sons,DE,HEALTH,0.0,0.0,False
+C151,Williams-Smith,DE,FOOD,0.0,0.0,False
+C152,Beck Inc,DE,FIN,0.0,0.0,True
+C153,"Galloway, Jones and Perez",SG,ENERGY,0.0,0.0,False
+C154,"Rojas, Green and Nicholson",US,MFG,0.0,0.0,False
+C155,Jones Group,IN,FOOD,0.0,0.0,False
+C156,Parrish Group,SG,MFG,0.0,0.0,False
+C157,Garrett Inc,SG,MFG,0.0,0.0,False
+C158,Rich-Little,US,FIN,0.0,0.0,False
+C159,Blevins-Hall,SG,HEALTH,0.0,0.0,True
+C160,Oliver-Conner,AU,TECH,0.0,0.0,False
+C161,Thompson-Jones,UK,HEALTH,0.0,0.0,False
+C162,Ward-Crawford,US,FIN,0.0,0.0,False
+C163,Bryant PLC,JP,FIN,0.0,0.0,False
+C164,"Carpenter, Strickland and Anderson",FR,HEALTH,0.0,0.0,False
+C165,Cook Ltd,SG,MFG,0.0,0.0,False
+C166,Cole-Garcia,DE,FOOD,0.0,0.0,False
+C167,Allen Ltd,JP,FOOD,0.0,0.0,False
+C168,Melendez Ltd,JP,ENERGY,0.0,0.0,False
+C169,Cain PLC,DE,FIN,0.0,0.0,False
+C170,"Ayala, Garcia and Gardner",US,FIN,0.0,0.0,False
+C171,"Wright, Henderson and Adams",IN,HEALTH,0.0,0.0,False
+C172,Pitts-Lee,FR,FOOD,0.0,0.0,False
+C173,"Ford, Warren and King",DE,MFG,0.0,0.0,False
+C174,Dixon-Brown,US,HEALTH,0.0,0.0,True
+C175,"Rich, Johnson and Anderson",FR,FIN,0.0,0.0,False
+C176,Vaughn PLC,DE,HEALTH,0.0,0.0,False
+C177,Sanders and Sons,IN,RETAIL,0.0,0.0,True
+C178,Mclaughlin and Sons,DE,ENERGY,0.0,0.0,False
+C179,Mendoza-Munoz,FR,ENERGY,0.0,0.0,False
+C180,Garcia-Wells,US,RETAIL,0.0,0.0,False
+C181,Chan Group,IN,FIN,0.0,0.0,False
+C182,"Hall, Kim and Keller",FR,FOOD,0.0,0.0,False
+C183,Hernandez Group,DE,RETAIL,0.0,0.0,False
+C184,Parker Inc,AU,TECH,0.0,0.0,False
+C185,Luna-Rodriguez,UK,MFG,0.0,0.0,False
+C186,Frost Ltd,AU,FOOD,0.0,0.0,True
+C187,"Mathis, Adams and Harris",AU,HEALTH,0.0,0.0,False
+C188,"Gonzales, Jackson and Brown",JP,HEALTH,0.0,0.0,False
+C189,"Riley, Flores and Levy",JP,TECH,0.0,0.0,False
+C190,Miller Group,UK,FIN,0.0,0.0,False
+C191,Gray Ltd,IN,ENERGY,0.0,0.0,False
+C192,Rogers-Day,DE,RETAIL,0.0,0.0,False
+C193,Thomas-Lopez,IN,ENERGY,0.0,0.0,False
+C194,"Webster, Johnson and Miller",DE,ENERGY,0.0,0.0,False
+C195,"Gardner, Wade and Clark",SG,MFG,0.0,0.0,False
+C196,Johnson and Sons,UK,TECH,0.0,0.0,False
+C197,Davis Group,IN,RETAIL,0.0,0.0,False
+C198,Woods-Webb,UK,TECH,0.0,0.0,False
+C199,Reed PLC,JP,FIN,0.0,0.0,False
+C200,"Sanchez, Peterson and Best",SG,FOOD,0.0,0.0,False
+C201,Lee-Johnson,FR,TECH,0.0,0.0,False
+C202,Perry Ltd,UK,ENERGY,0.0,0.0,False
+C203,Adams Group,UK,FIN,0.0,0.0,True
+C204,Jones-Knight,SG,FOOD,0.0,0.0,True
+C205,Morgan Ltd,FR,MFG,0.0,0.0,False
+C206,Wilson-Taylor,FR,FOOD,0.0,0.0,False
+C207,"Martinez, Adams and Ward",FR,TECH,0.0,0.0,False
+C208,Ruiz Group,UK,FOOD,0.0,0.0,False
+C209,Hernandez-Mueller,AU,RETAIL,0.0,0.0,False
+C210,Riley PLC,AU,ENERGY,0.0,0.0,False
+C211,White-Pierce,AU,FOOD,0.0,0.0,False
+C212,Hines-Reyes,AU,MFG,0.0,0.0,False
+C213,Brooks Ltd,UK,RETAIL,0.0,0.0,False
+C214,"Wagner, Lopez and Stafford",UK,RETAIL,0.0,0.0,False
+C215,"Erickson, Griffin and Berg",IN,TECH,0.0,0.0,False
+C216,Huffman and Sons,DE,HEALTH,0.0,0.0,False
+C217,Smith Ltd,DE,TECH,0.0,0.0,False
+C218,Jones Group,UK,ENERGY,0.0,0.0,False
+C219,"Booker, Moore and Baxter",AU,FIN,0.0,0.0,True
+C220,"Snyder, King and Riley",UK,FOOD,0.0,0.0,True
+C221,Kemp and Sons,JP,HEALTH,0.0,0.0,False
+C222,Wilkinson-Arnold,UK,HEALTH,0.0,0.0,False
+C223,Wright LLC,FR,HEALTH,0.0,0.0,False
+C224,Torres-Lee,JP,RETAIL,0.0,0.0,False
+C225,Lowery and Sons,UK,TECH,0.0,0.0,False
+C226,"Paul, Knight and Pugh",US,TECH,0.0,0.0,False
+C227,Harrison and Sons,IN,MFG,0.0,0.0,False
+C228,"Arias, Edwards and Campbell",US,HEALTH,0.0,0.0,False
+C229,Brown PLC,UK,RETAIL,0.0,0.0,False
+C230,Huerta and Sons,UK,HEALTH,0.0,0.0,False
+C231,"Allen, Russo and Hogan",DE,ENERGY,0.0,0.0,False
+C232,"Nelson, George and Gonzalez",FR,RETAIL,0.0,0.0,False
+C233,Stevenson Inc,SG,ENERGY,0.0,0.0,True
+C234,Porter Ltd,FR,ENERGY,0.0,0.0,False
+C235,Edwards Group,SG,FIN,0.0,0.0,False
+C236,Miller LLC,SG,TECH,0.0,0.0,False
+C237,Castillo-Montgomery,US,ENERGY,0.0,0.0,False
+C238,Colon-Williams,JP,FIN,0.0,0.0,False
+C239,Moore-Lynch,SG,ENERGY,0.0,0.0,False
+C240,Jones-Chandler,US,RETAIL,0.0,0.0,False
+C241,"Reed, Johnson and Hill",US,ENERGY,0.0,0.0,False
+C242,Porter-Ibarra,JP,MFG,0.0,0.0,False
+C243,Spencer-Jackson,UK,MFG,0.0,0.0,True
+C244,Kelley-Abbott,JP,FOOD,0.0,0.0,False
+C245,"Kelley, Wells and Mccarthy",FR,FOOD,0.0,0.0,True
+C246,Baker Inc,SG,MFG,0.0,0.0,False
+C247,"Reynolds, Aguirre and Harris",US,FOOD,0.0,0.0,False
+C248,Holden-Thomas,IN,MFG,0.0,0.0,False
+C249,Edwards Group,SG,FIN,0.0,0.0,False
+C250,Garcia-Le,DE,FOOD,0.0,0.0,False
+C251,"Mcguire, Hill and Johnson",DE,ENERGY,0.0,0.0,True
+C252,Park-Harris,SG,MFG,0.0,0.0,False
+C253,"Brown, Burton and Mcneil",IN,TECH,0.0,0.0,False
+C254,Summers and Sons,US,ENERGY,0.0,0.0,True
+C255,Barnes-Webster,JP,MFG,0.0,0.0,False
+C256,Ellis-Bray,US,ENERGY,0.0,0.0,False
+C257,Gonzalez and Sons,DE,HEALTH,0.0,0.0,False
+C258,Davis-Bautista,FR,FIN,0.0,0.0,False
+C259,"Jones, Townsend and Clark",UK,MFG,0.0,0.0,False
+C260,Cooper Group,IN,FIN,0.0,0.0,False
+C261,Navarro LLC,UK,RETAIL,0.0,0.0,False
+C262,Johnson Inc,US,MFG,0.0,0.0,False
+C263,Petty Ltd,IN,RETAIL,0.0,0.0,False
+C264,Sanchez-Ball,DE,HEALTH,0.0,0.0,False
+C265,"Johnson, Payne and Bishop",UK,MFG,0.0,0.0,False
+C266,Mills-Sutton,IN,RETAIL,0.0,0.0,False
+C267,Wilkinson Inc,SG,ENERGY,0.0,0.0,False
+C268,Vang-Stokes,UK,RETAIL,0.0,0.0,False
+C269,Richards Ltd,AU,FOOD,0.0,0.0,False
+C270,Arias Inc,FR,TECH,0.0,0.0,False
+C271,"Howard, Crawford and Harrell",UK,FIN,0.0,0.0,False
+C272,Morrow PLC,JP,HEALTH,0.0,0.0,False
+C273,Carlson LLC,IN,ENERGY,0.0,0.0,False
+C274,Kennedy and Sons,US,FIN,0.0,0.0,False
+C275,Maynard-Eaton,UK,TECH,0.0,0.0,False
+C276,"Villarreal, Oneill and Frye",DE,FIN,0.0,0.0,False
+C277,"Gonzalez, Long and Franklin",JP,RETAIL,0.0,0.0,False
+C278,"Davis, Sanchez and Hopkins",IN,ENERGY,0.0,0.0,False
+C279,Irwin Ltd,AU,RETAIL,0.0,0.0,False
+C280,Martin Ltd,SG,TECH,0.0,0.0,False
+C281,Perkins and Sons,US,FIN,0.0,0.0,False
+C282,Smith LLC,SG,TECH,0.0,0.0,False
+C283,Johnson-Torres,FR,FOOD,0.0,0.0,True
+C284,"Reynolds, Copeland and Conrad",JP,MFG,0.0,0.0,False
+C285,Mccullough-Sharp,FR,RETAIL,0.0,0.0,True
+C286,Watts PLC,JP,ENERGY,0.0,0.0,True
+C287,Phillips-Brown,AU,TECH,0.0,0.0,False
+C288,"Martin, Booth and Mcclure",IN,ENERGY,0.0,0.0,False
+C289,"Alexander, Villa and Wilson",AU,ENERGY,0.0,0.0,False
+C290,Torres LLC,AU,RETAIL,0.0,0.0,False
+C291,Fisher-Guerrero,SG,MFG,0.0,0.0,False
+C292,Dawson Inc,FR,HEALTH,0.0,0.0,False
+C293,Bailey LLC,SG,FIN,0.0,0.0,False
+C294,Reynolds Ltd,DE,TECH,0.0,0.0,True
+C295,King-Wagner,FR,HEALTH,0.0,0.0,False
+C296,"Rodriguez, Hunter and Williams",UK,FOOD,0.0,0.0,False
+C297,Smith-Jones,DE,FOOD,0.0,0.0,True
+C298,Johnson and Sons,JP,ENERGY,0.0,0.0,False
+C299,Hill-Ayers,DE,FIN,0.0,0.0,True
+C300,Barnes LLC,US,MFG,0.0,0.0,False
+C301,"Martinez, Sanchez and Black",SG,TECH,0.0,0.0,False
+C302,"Bailey, Green and Stephens",US,FOOD,0.0,0.0,False
+C303,Shaw Inc,DE,MFG,0.0,0.0,False
+C304,Wilson Inc,AU,MFG,0.0,0.0,False
+C305,"Henderson, Francis and Jackson",AU,FIN,0.0,0.0,False
+C306,Lee Inc,UK,HEALTH,0.0,0.0,False
+C307,"Hall, Jones and Gordon",SG,TECH,0.0,0.0,False
+C308,Keller-Rivera,UK,MFG,0.0,0.0,False
+C309,"Thomas, Pierce and Rhodes",US,RETAIL,0.0,0.0,False
+C310,"Allen, Dougherty and Olsen",SG,HEALTH,0.0,0.0,False
+C311,Cunningham Ltd,IN,ENERGY,0.0,0.0,False
+C312,"Vargas, Orr and Nielsen",SG,TECH,0.0,0.0,False
+C313,"Ellis, Hernandez and Wilson",SG,FOOD,0.0,0.0,False
+C314,"Pittman, Peck and Stewart",DE,TECH,0.0,0.0,True
+C315,Osborne-Barker,FR,RETAIL,0.0,0.0,False
+C316,Ward-Mitchell,FR,TECH,0.0,0.0,False
+C317,Zavala PLC,DE,FIN,0.0,0.0,True
+C318,Aguilar-Myers,FR,HEALTH,0.0,0.0,True
+C319,Rodriguez-Martin,SG,FIN,0.0,0.0,False
+C320,Vaughn Inc,FR,FIN,0.0,0.0,False
+C321,Ross-Rodriguez,JP,MFG,0.0,0.0,False
+C322,"Johnson, Conner and Guerrero",DE,MFG,0.0,0.0,False
+C323,Vargas-Gomez,SG,RETAIL,0.0,0.0,False
+C324,Tucker-Barker,US,HEALTH,0.0,0.0,False
+C325,Hunter PLC,UK,MFG,0.0,0.0,False
+C326,Holland LLC,SG,HEALTH,0.0,0.0,True
+C327,Collier Ltd,DE,ENERGY,0.0,0.0,False
+C328,"Rodriguez, Moreno and Alvarez",JP,FIN,0.0,0.0,True
+C329,Hunt-Moran,DE,MFG,0.0,0.0,False
+C330,Rollins-Williams,FR,MFG,0.0,0.0,False
+C331,Noble Group,IN,FIN,0.0,0.0,False
+C332,Williams Ltd,US,FIN,0.0,0.0,False
+C333,Lyons Ltd,IN,HEALTH,0.0,0.0,False
+C334,Spencer-Ruiz,SG,HEALTH,0.0,0.0,True
+C335,"Williams, Young and Payne",AU,MFG,0.0,0.0,False
+C336,Lewis PLC,DE,ENERGY,0.0,0.0,True
+C337,Perry-Kerr,UK,MFG,0.0,0.0,False
+C338,Taylor LLC,DE,FOOD,0.0,0.0,False
+C339,Garcia Ltd,SG,FOOD,0.0,0.0,False
+C340,White-Stewart,DE,ENERGY,0.0,0.0,False
+C341,Hansen-Crane,US,HEALTH,0.0,0.0,False
+C342,"Taylor, Lopez and Schwartz",AU,FOOD,0.0,0.0,False
+C343,Nunez-Smith,SG,MFG,0.0,0.0,False
+C344,Rodriguez-Taylor,FR,FIN,0.0,0.0,False
+C345,Li LLC,FR,ENERGY,0.0,0.0,False
+C346,Smith Ltd,DE,FIN,0.0,0.0,False
+C347,Davis-Davis,UK,TECH,0.0,0.0,False
+C348,"Yates, Young and Smith",US,RETAIL,0.0,0.0,False
+C349,"Blevins, Diaz and Glass",JP,TECH,0.0,0.0,False
+C350,Smith-Stevens,SG,HEALTH,0.0,0.0,False
+C351,"Cooper, Miller and Gonzalez",SG,RETAIL,0.0,0.0,False
+C352,"Maynard, Porter and Davila",SG,RETAIL,0.0,0.0,True
+C353,Campbell Ltd,UK,FIN,0.0,0.0,False
+C354,"Cox, Mccullough and Hogan",AU,TECH,0.0,0.0,False
+C355,"Webb, Thompson and Harris",JP,ENERGY,0.0,0.0,False
+C356,Bowen Inc,DE,FOOD,0.0,0.0,False
+C357,"Arnold, Schmidt and Snyder",AU,HEALTH,0.0,0.0,False
+C358,"Scott, Cole and Barker",DE,HEALTH,0.0,0.0,False
+C359,"Mcdonald, Patel and Williams",UK,TECH,0.0,0.0,False
+C360,Fowler-Scott,DE,ENERGY,0.0,0.0,True
+C361,"Martinez, Mitchell and Everett",DE,TECH,0.0,0.0,False
+C362,"Terry, Davis and Morales",SG,FIN,0.0,0.0,True
+C363,"Barnett, Jenkins and Brooks",US,MFG,0.0,0.0,False
+C364,Bishop-Moore,SG,FOOD,0.0,0.0,False
+C365,Williams and Sons,DE,HEALTH,0.0,0.0,False
+C366,Mullins-Owens,AU,FOOD,0.0,0.0,False
+C367,Black-Miller,UK,RETAIL,0.0,0.0,False
+C368,Martinez Inc,SG,TECH,0.0,0.0,False
+C369,Benson-Schmitt,SG,RETAIL,0.0,0.0,False
+C370,Luna Group,US,HEALTH,0.0,0.0,False
+C371,"Friedman, Perez and Vasquez",US,MFG,0.0,0.0,False
+C372,Fields Group,SG,MFG,0.0,0.0,False
+C373,Williams-Wolfe,UK,HEALTH,0.0,0.0,False
+C374,Peterson and Sons,US,HEALTH,0.0,0.0,True
+C375,"Harvey, Parker and Daugherty",AU,TECH,0.0,0.0,False
+C376,"Harris, Mason and Espinoza",AU,HEALTH,0.0,0.0,False
+C377,Duffy PLC,AU,MFG,0.0,0.0,False
+C378,Jackson-Bartlett,US,HEALTH,0.0,0.0,False
+C379,Fields PLC,US,MFG,0.0,0.0,False
+C380,Johnson PLC,US,FOOD,0.0,0.0,False
+C381,"Rogers, Owens and Reyes",JP,FIN,0.0,0.0,True
+C382,Martin Group,JP,HEALTH,0.0,0.0,False
+C383,"Kim, Johnson and Williams",AU,ENERGY,0.0,0.0,True
+C384,White Ltd,IN,HEALTH,0.0,0.0,False
+C385,Davis Ltd,FR,HEALTH,0.0,0.0,False
+C386,"Mckay, Daniels and Taylor",US,HEALTH,0.0,0.0,False
+C387,Ortiz-Singh,IN,TECH,0.0,0.0,True
+C388,Garcia Ltd,IN,FOOD,0.0,0.0,True
+C389,"Moreno, Simmons and Zavala",DE,ENERGY,0.0,0.0,True
+C390,Ortiz-Miller,DE,RETAIL,0.0,0.0,False
+C391,"Jones, Townsend and Lang",IN,MFG,0.0,0.0,False
+C392,Quinn-Garcia,DE,ENERGY,0.0,0.0,False
+C393,Burton PLC,IN,MFG,0.0,0.0,False
+C394,"Medina, Oconnor and Hogan",SG,FOOD,0.0,0.0,False
+C395,"Johnson, Kramer and Golden",FR,MFG,0.0,0.0,False
+C396,Munoz PLC,DE,FOOD,0.0,0.0,False
+C397,Harrison-Thompson,IN,FIN,0.0,0.0,False
+C398,Thomas and Sons,DE,MFG,0.0,0.0,True
+C399,Benton-Williamson,JP,FIN,0.0,0.0,False
+C400,"Richardson, Golden and Davis",US,MFG,0.0,0.0,False
+C401,Sandoval PLC,AU,TECH,0.0,0.0,False
+C402,Mills-Blake,SG,MFG,0.0,0.0,True
+C403,Davis-Garcia,IN,FIN,0.0,0.0,False
+C404,Kelly Group,FR,FIN,0.0,0.0,False
+C405,"Bartlett, Zamora and Crawford",FR,RETAIL,0.0,0.0,False
+C406,"Robinson, Stewart and Vargas",US,FIN,0.0,0.0,False
+C407,Schmidt-Patterson,AU,RETAIL,0.0,0.0,True
+C408,Wallace LLC,US,HEALTH,0.0,0.0,False
+C409,Green-Marshall,JP,FOOD,0.0,0.0,False
+C410,Green Group,US,TECH,0.0,0.0,False
+C411,Jones-Dean,JP,TECH,0.0,0.0,True
+C412,Rogers-Allen,JP,FOOD,0.0,0.0,False
+C413,Boyd-Jacobson,DE,RETAIL,0.0,0.0,False
+C414,Carpenter-Wells,SG,ENERGY,0.0,0.0,False
+C415,"Pitts, Jones and Hoffman",IN,RETAIL,0.0,0.0,False
+C416,"Welch, Taylor and Patterson",AU,FIN,0.0,0.0,False
+C417,"Myers, Frazier and Frederick",DE,TECH,0.0,0.0,False
+C418,Brown-Pearson,US,MFG,0.0,0.0,False
+C419,Wilson-Clark,UK,FOOD,0.0,0.0,False
+C420,"Henry, Patton and Quinn",IN,FIN,0.0,0.0,False
+C421,"Cortez, Hill and Clark",JP,RETAIL,0.0,0.0,False
+C422,Martinez and Sons,SG,HEALTH,0.0,0.0,False
+C423,Henderson-Webster,JP,TECH,0.0,0.0,True
+C424,Sutton-Bennett,AU,ENERGY,0.0,0.0,False
+C425,"Moore, Aguilar and Gonzales",DE,MFG,0.0,0.0,False
+C426,"Contreras, Downs and Thomas",SG,RETAIL,0.0,0.0,False
+C427,Key-Morales,SG,TECH,0.0,0.0,True
+C428,Braun Group,JP,RETAIL,0.0,0.0,False
+C429,"Byrd, Barajas and Avery",UK,FOOD,0.0,0.0,False
+C430,Gonzalez Ltd,SG,HEALTH,0.0,0.0,False
+C431,Mason Inc,IN,HEALTH,0.0,0.0,False
+C432,Jackson-Berry,AU,MFG,0.0,0.0,False
+C433,Reyes and Sons,SG,FIN,0.0,0.0,False
+C434,"Scott, Jordan and Schwartz",UK,FOOD,0.0,0.0,False
+C435,"Robbins, Rogers and Drake",JP,FOOD,0.0,0.0,False
+C436,Johnson-Perez,DE,MFG,0.0,0.0,False
+C437,"Smith, Moss and West",IN,HEALTH,0.0,0.0,False
+C438,Jimenez and Sons,US,FOOD,0.0,0.0,False
+C439,Johnson Group,JP,ENERGY,0.0,0.0,False
+C440,Cox PLC,SG,FIN,0.0,0.0,True
+C441,"Mitchell, Baker and Floyd",US,TECH,0.0,0.0,False
+C442,Tran-Hoover,SG,RETAIL,0.0,0.0,False
+C443,Parsons LLC,FR,HEALTH,0.0,0.0,False
+C444,Osborn Group,UK,FIN,0.0,0.0,False
+C445,"Davis, Garcia and Johnson",AU,FIN,0.0,0.0,False
+C446,Garcia LLC,IN,FIN,0.0,0.0,True
+C447,"Barker, Howard and Gentry",FR,RETAIL,0.0,0.0,False
+C448,Villegas and Sons,SG,FIN,0.0,0.0,False
+C449,"Sullivan, Scott and Crawford",IN,FOOD,0.0,0.0,False
+C450,Carroll-Hall,JP,MFG,0.0,0.0,False
+C451,"Brown, Jones and Simpson",DE,RETAIL,0.0,0.0,False
+C452,Bell Inc,FR,FIN,0.0,0.0,False
+C453,Faulkner-Lewis,FR,HEALTH,0.0,0.0,False
+C454,Perkins-Brown,JP,RETAIL,0.0,0.0,False
+C455,Hicks-Deleon,IN,FOOD,0.0,0.0,False
+C456,"Greene, Farmer and Conway",AU,HEALTH,0.0,0.0,False
+C457,"Hayes, Rich and Shaw",AU,RETAIL,0.0,0.0,False
+C458,Davis-Pearson,JP,TECH,0.0,0.0,False
+C459,Meyer-Stone,JP,MFG,0.0,0.0,False
+C460,Lamb-Webb,JP,HEALTH,0.0,0.0,False
+C461,Reed and Sons,SG,TECH,0.0,0.0,False
+C462,Zimmerman-Byrd,AU,ENERGY,0.0,0.0,True
+C463,Garza-Gallegos,AU,FIN,0.0,0.0,True
+C464,Simmons-Long,US,HEALTH,0.0,0.0,False
+C465,Wilson and Sons,IN,FIN,0.0,0.0,True
+C466,"Johnson, Bradford and Sweeney",UK,HEALTH,0.0,0.0,False
+C467,Garcia-Gomez,JP,FOOD,0.0,0.0,False
+C468,Walker-Blackwell,US,FOOD,0.0,0.0,False
+C469,"Best, Rowe and Santos",IN,RETAIL,0.0,0.0,False
+C470,"Francis, Wilson and Ward",UK,MFG,0.0,0.0,True
+C471,Sexton-Anderson,IN,FOOD,0.0,0.0,False
+C472,"Washington, Good and Brooks",DE,ENERGY,0.0,0.0,False
+C473,Carson-Williams,AU,FIN,0.0,0.0,False
+C474,Hughes-Anderson,IN,MFG,0.0,0.0,False
+C475,Avery-Jones,SG,RETAIL,0.0,0.0,True
+C476,Bailey and Sons,FR,TECH,0.0,0.0,True
+C477,Wilson and Sons,DE,FOOD,0.0,0.0,True
+C478,Beard-Andersen,FR,FOOD,0.0,0.0,False
+C479,Lowery Inc,IN,ENERGY,0.0,0.0,False
+C480,"Bullock, Pham and Wright",UK,HEALTH,0.0,0.0,False
+C481,Bryant-Ramsey,DE,FIN,0.0,0.0,False
+C482,Holt-Griffith,IN,FOOD,0.0,0.0,False
+C483,Lewis PLC,SG,FOOD,0.0,0.0,False
+C484,Rowe-Collins,IN,ENERGY,0.0,0.0,False
+C485,"Andrews, Daniels and Allen",SG,HEALTH,0.0,0.0,True
+C486,"Woods, Huber and Hendricks",FR,ENERGY,0.0,0.0,False
+C487,Willis-Silva,DE,ENERGY,0.0,0.0,True
+C488,Rose-Thompson,US,TECH,0.0,0.0,False
+C489,Hill-May,IN,FIN,0.0,0.0,True
+C490,Smith-Fox,IN,ENERGY,0.0,0.0,False
+C491,Carson PLC,JP,FOOD,0.0,0.0,False
+C492,"Marquez, Taylor and Roach",UK,HEALTH,0.0,0.0,False
+C493,"Thompson, Logan and Medina",DE,TECH,0.0,0.0,False
+C494,Newman-Shepard,US,HEALTH,0.0,0.0,False
+C495,"Murray, Russell and Wilson",UK,TECH,0.0,0.0,False
+C496,Murray Inc,JP,ENERGY,0.0,0.0,False
+C497,Johnson LLC,AU,TECH,0.0,0.0,False
+C498,Ball-Ramirez,US,ENERGY,0.0,0.0,False
+C499,Bradshaw Ltd,UK,RETAIL,0.0,0.0,False
