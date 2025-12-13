@@ -230,3 +230,237 @@ async def visualize_company_network(company_id: str):
         return HTMLResponse(content=html_content)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Visualization failed: {str(e)}")
+
+
+
+# # app.py (only the changed parts)
+
+# from fastapi import FastAPI, HTTPException
+# from fastapi.middleware.cors import CORSMiddleware
+# from pydantic import BaseModel
+# from typing import List, Dict, Any
+# import os
+
+# from fraud_engine import FraudDetectionEngine
+
+# app = FastAPI(title="Fraud Detection API")
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
+# NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+# NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
+# NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
+
+
+# class CompanyResponse(BaseModel):
+#     riskscore: float
+#     opportunityscore: float
+#     patterns: Dict[str, Any]
+#     visualizationdata: Dict[str, Any]
+
+
+# def build_visualization_data(
+#     company_id: str,
+#     engine: FraudDetectionEngine,
+#     patterns: Dict[str, Any],
+# ) -> Dict[str, Any]:
+#     """
+#     Build a compact 2-hop graph around the queried company:
+
+#     - Always includes the queried company node.
+#     - Includes all nodes that appear in any of the 3 fraud patterns for this company.
+#     - Includes only nodes that are at most 2 hops away from the queried company.
+#     """
+
+#     nodes: List[Dict[str, Any]] = []
+#     edges: List[Dict[str, Any]] = []
+#     node_index: Dict[str, int] = {}
+
+#     with engine.driver.session() as session:
+#         # 1) Find canonical company id
+#         check_query = """
+#         MATCH (c:Company)
+#         WHERE toLower(c.company_id) = toLower($company_id)
+#         RETURN c.company_id AS id,
+#                c.name AS name,
+#                coalesce(c.risk_score, 0.0) AS risk_score
+#         """
+#         check_result = session.run(check_query, company_id=company_id)
+#         company_record = check_result.single()
+#         if not company_record:
+#             return {"nodes": [], "edges": []}
+
+#         actual_company_id = company_record["id"]
+
+#         # 2) Collect all node ids that MUST be kept from patterns
+#         pattern_ids = set()
+
+#         for p in patterns.get("pattern1_shell", []):
+#             for cid in p.get("chain", []):
+#                 pattern_ids.add(cid)
+
+#         for p in patterns.get("pattern2_circular", []):
+#             for cid in p.get("cycle", []):
+#                 pattern_ids.add(cid)
+
+#         for p in patterns.get("pattern3_hidden", []):
+#             if "shareholderId" in p:
+#                 pattern_ids.add(p["shareholderId"])
+#             if "supplierId" in p:
+#                 pattern_ids.add(p["supplierId"])
+
+#         # Ensure the queried company is always kept
+#         pattern_ids.add(actual_company_id)
+
+#         # 3) Fetch ONLY nodes within 2 hops of the queried company
+#         query = """
+#         MATCH path = (center:Company {company_id: $company_id})-[r*1..2]-(neighbor)
+#         WHERE NOT neighbor:Invoice
+#           AND ALL(rel IN relationships(path)
+#               WHERE type(rel) IN ['SUPPLIES','SUBSIDIARY_OF','OWNS_SHARE','AUDITED_BY'])
+#         WITH center, neighbor, relationships(path) AS rels
+#         WITH DISTINCT center, neighbor
+#         RETURN
+#           coalesce(neighbor.company_id, neighbor.shareholder_id, neighbor.auditor_id) AS id,
+#           labels(neighbor)[0] AS type,
+#           coalesce(neighbor.risk_score, 0.0) AS riskScore
+#         """
+#         result = session.run(query, company_id=actual_company_id)
+
+#         # 4) Add center node (highlighted later in frontend)
+#         center_node = {
+#             "id": actual_company_id,
+#             "label": actual_company_id,
+#             "riskscore": float(company_record["risk_score"]),
+#             "type": "Company",
+#             "size": 40,              # make it visually larger
+#             "color": "#1d4ed8",      # stronger blue for query company
+#         }
+#         nodes.append(center_node)
+#         node_index[actual_company_id] = 0
+
+#         kept_ids = {actual_company_id}
+
+#         # 5) Add only neighbors that are either:
+#         #    - part of any pattern, OR
+#         #    - directly within 2 hops (but we still bound by that query)
+#         for record in result:
+#             node_id = record["id"]
+#             if not node_id or node_id == actual_company_id:
+#                 continue
+
+#             # Only keep nodes that are in at least one fraud pattern
+#             # or, if you want absolutely minimal clutter, comment the "or" part.
+#             if node_id not in pattern_ids:
+#                 continue
+
+#             if node_id in kept_ids:
+#                 continue
+
+#             risk = float(record["riskScore"])
+#             size = max(12.0, 28.0 - risk * 16.0)
+
+#             if risk >= 0.7:
+#                 color = "#ef4444"
+#             elif risk >= 0.4:
+#                 color = "#f59e0b"
+#             else:
+#                 color = "#10b981"
+
+#             node_index[node_id] = len(nodes)
+#             nodes.append(
+#                 {
+#                     "id": node_id,
+#                     "label": node_id,
+#                     "riskscore": risk,
+#                     "type": record["type"],
+#                     "size": size,
+#                     "color": color,
+#                 }
+#             )
+#             kept_ids.add(node_id)
+
+#         # 6) Edges only between the kept nodes (still limited to 2 hops)
+#         if len(kept_ids) > 1:
+#             edge_query = """
+#             MATCH (n1)-[r:SUPPLIES|SUBSIDIARY_OF|OWNS_SHARE|AUDITED_BY]-(n2)
+#             WHERE NOT n1:Invoice AND NOT n2:Invoice
+#               AND coalesce(n1.company_id, n1.shareholder_id, n1.auditorid) IN $ids
+#               AND coalesce(n2.company_id, n2.shareholder_id, n2.auditorid) IN $ids
+#             RETURN DISTINCT
+#               coalesce(n1.company_id, n1.shareholder_id, n1.auditorid) AS fromId,
+#               coalesce(n2.company_id, n2.shareholder_id, n2.auditorid) AS toId,
+#               type(r) AS relType,
+#               coalesce(r.percentage, r.annual_volume, 1.0) AS weight
+#             """
+#             edge_result = session.run(edge_query, ids=list(kept_ids))
+#             added_edges = set()
+
+#             for record in edge_result:
+#                 from_id = record["fromId"]
+#                 to_id = record["toId"]
+#                 if from_id in node_index and to_id in node_index:
+#                     key = tuple(sorted((from_id, to_id)))
+#                     if key in added_edges:
+#                         continue
+#                     added_edges.add(key)
+#                     edges.append(
+#                         {
+#                             "from": node_index[from_id],
+#                             "to": node_index[to_id],
+#                             "label": record["relType"],
+#                             "width": max(1.0, float(record["weight"]) / 10.0),
+#                         }
+#                     )
+
+#     return {"nodes": nodes, "edges": edges}
+
+
+# @app.get("/company/{company_id}", response_model=CompanyResponse)
+# async def get_company_analysis(company_id: str) -> CompanyResponse:
+#     """
+#     Compute scores + patterns and return a compact 2‑hop visualization around the queried node.
+#     """
+#     engine = FraudDetectionEngine(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
+#     try:
+#         # case‑insensitive lookup
+#         with engine.driver.session() as session:
+#             result = session.run(
+#                 """
+#                 MATCH (c:Company)
+#                 WHERE toLower(c.company_id) = toLower($company_id)
+#                 RETURN c.company_id AS actual_id
+#                 """,
+#                 company_id=company_id,
+#             )
+#             record = result.single()
+#             if not record:
+#                 raise HTTPException(
+#                     status_code=404,
+#                     detail=f"Company '{company_id}' not found in database",
+#                 )
+#             actual_company_id = record["actual_id"]
+
+#         risk, opportunity, patterns = engine.analyze_company(actual_company_id)
+#         viz_data = build_visualization_data(actual_company_id, engine, patterns)
+
+#         if not viz_data["nodes"]:
+#             raise HTTPException(
+#                 status_code=404,
+#                 detail=f"No network data found for company '{actual_company_id}'",
+#             )
+
+#         return CompanyResponse(
+#             riskscore=float(risk),
+#             opportunityscore=float(opportunity),
+#             patterns=patterns,
+#             visualizationdata=viz_data,
+#         )
+#     finally:
+#         engine.close()

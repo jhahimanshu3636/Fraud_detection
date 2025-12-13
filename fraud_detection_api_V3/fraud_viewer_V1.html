@@ -1,0 +1,1332 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Network</title>
+    <script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .search-box input {
+            padding: 10px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            width: 200px;
+            transition: all 0.2s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .search-box button {
+            padding: 10px 24px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .search-box button:hover {
+            background: #2563eb;
+        }
+        
+        .search-box button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+        }
+        
+        .stat-value {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .stat-value.risk-high {
+            color: #dc2626;
+        }
+        
+        .stat-value.risk-low {
+            color: #16a34a;
+        }
+        
+        /* Main Content */
+        .main {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            min-height: 0; /* Important for flex children */
+        }
+        
+        /* Network Container */
+        .network-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 0; /* Important for flex children */
+        }
+        
+        #network-container {
+            flex: 1;
+            background: white;
+            width: 100%;
+            height: 100%;
+            min-height: 500px; /* Ensure minimum height */
+        }
+        
+        /* Controls */
+        .controls {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        
+        .controls h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .control-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 8px 12px;
+            margin: 4px 0;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #374151;
+        }
+        
+        .control-btn:hover {
+            background: #f9fafb;
+            border-color: #3b82f6;
+        }
+        
+        .control-btn.active {
+            background: #eff6ff;
+            border-color: #3b82f6;
+            color: #2563eb;
+            font-weight: 500;
+        }
+        
+        /* Legend */
+        .legend {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        
+        .legend h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 6px 0;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            background: white;
+            border-left: 1px solid #e5e7eb;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .sidebar.active {
+            display: block;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .pattern-section {
+            padding: 20px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .pattern-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 12px;
+        }
+        
+        .pattern-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .pattern-card .pattern-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 6px;
+        }
+        
+        .pattern-card .pattern-detail {
+            color: #6b7280;
+            margin: 4px 0;
+        }
+        
+        .pattern-card .pattern-companies {
+            font-family: monospace;
+            font-size: 12px;
+            color: #3b82f6;
+            margin-top: 6px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .badge.high {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .badge.medium {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .badge.low {
+            background: #d1fae5;
+            color: #059669;
+        }
+        
+        .no-patterns {
+            color: #9ca3af;
+            font-size: 13px;
+            padding: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Loading */
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        
+        .loading.active {
+            display: flex;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Error */
+        .error {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            z-index: 101;
+        }
+        
+        .error.active {
+            display: block;
+        }
+        
+        .error-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #dc2626;
+            margin-bottom: 12px;
+        }
+        
+        .error-message {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .error-close {
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">🔍 Fraud Detection</div>
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="companyInput" 
+                    placeholder="Company ID (e.g., c128)"
+                    value="c128"
+                >
+                <button id="analyzeBtn" onclick="analyzeCompany()">Analyze</button>
+            </div>
+        </div>
+        <div class="stats" id="statsBar" style="display: none;">
+            <div class="stat-item">
+                <span class="stat-label">Risk:</span>
+                <span class="stat-value" id="riskScore">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Entities:</span>
+                <span class="stat-value" id="totalNodes">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Links:</span>
+                <span class="stat-value" id="totalEdges">-</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="network-panel">
+            <div id="network-container"></div>
+            
+            <div class="controls">
+                <h3>Highlight Patterns</h3>
+                <button class="control-btn" onclick="highlightPattern('shell')">
+                    🔗 Shell Chains
+                </button>
+                <button class="control-btn" onclick="highlightPattern('circular')">
+                    🔄 Circular Trade
+                </button>
+                <button class="control-btn" onclick="highlightPattern('hidden')">
+                    👁️ Hidden Influence
+                </button>
+                <button class="control-btn" onclick="resetView()">
+                    ↺ Reset
+                </button>
+            </div>
+            
+            <div class="legend">
+                <h3>Risk Levels</h3>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #ef4444;"></div>
+                    <span>High (≥0.7)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #f59e0b;"></div>
+                    <span>Medium (0.4-0.7)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #10b981;"></div>
+                    <span>Low (<0.4)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #3b82f6;"></div>
+                    <span>Query Company</span>
+                </div>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+            </div>
+            
+            <div class="error" id="error">
+                <div class="error-title">Error</div>
+                <div class="error-message" id="errorMessage"></div>
+                <button class="error-close" onclick="closeError()">Close</button>
+            </div>
+        </div>
+        
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Detected Patterns</h2>
+            </div>
+            
+            <div class="pattern-section">
+                <h3>🔗 Shell Company Chains</h3>
+                <div id="shell-patterns"></div>
+            </div>
+            
+            <div class="pattern-section">
+                <h3>🔄 Circular Trade</h3>
+                <div id="circular-patterns"></div>
+            </div>
+            
+            <div class="pattern-section">
+                <h3>👁️ Hidden Influence</h3>
+                <div id="hidden-patterns"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let network = null;
+        let nodesData = [];
+        let edgesData = [];
+        let highlights = {};
+        let patterns = {};
+        let currentHighlight = null;
+        const API_ENDPOINT = 'http://localhost:8000';
+        
+        document.getElementById('companyInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') analyzeCompany();
+        });
+        
+        async function analyzeCompany() {
+            const companyId = document.getElementById('companyInput').value.trim();
+            
+            if (!companyId) {
+                showError('Please enter a company ID');
+                return;
+            }
+            
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('analyzeBtn').disabled = true;
+            document.getElementById('statsBar').style.display = 'none';
+            document.getElementById('sidebar').classList.remove('active');
+            
+            try {
+                const response = await fetch(`${API_ENDPOINT}/company/${companyId}`);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || `HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                displayResults(companyId, data);
+                
+            } catch (error) {
+                showError(error.message || 'Failed to connect to API. Ensure the server is running.');
+            } finally {
+                document.getElementById('loading').classList.remove('active');
+                document.getElementById('analyzeBtn').disabled = false;
+            }
+        }
+        
+        function displayResults(companyId, data) {
+            // Update stats
+            const riskValue = document.getElementById('riskScore');
+            riskValue.textContent = data.riskscore.toFixed(2);
+            riskValue.className = 'stat-value ' + (data.riskscore >= 0.7 ? 'risk-high' : 'risk-low');
+            
+            document.getElementById('totalNodes').textContent = data.visualizationdata.nodes.length;
+            document.getElementById('totalEdges').textContent = data.visualizationdata.edges.length;
+            document.getElementById('statsBar').style.display = 'flex';
+            
+            nodesData = data.visualizationdata.nodes;
+            edgesData = data.visualizationdata.edges;
+            patterns = data.patterns;
+            
+            highlights = calculateHighlights(companyId, patterns, nodesData);
+            createNetwork();
+            populatePatterns();
+            
+            // Show sidebar if patterns exist
+            if (hasPatterns()) {
+                document.getElementById('sidebar').classList.add('active');
+            }
+        }
+        
+        function createNetwork() {
+            console.log('Creating network with', nodesData.length, 'nodes and', edgesData.length, 'edges');
+            
+            const nodes = new vis.DataSet(nodesData.map(node => ({
+                id: node.id,
+                label: node.id, // Show only company ID
+                title: `${node.id}\n${node.type}\nRisk: ${node.riskscore.toFixed(2)}`,
+                color: {
+                    background: getNodeColor(node),
+                    border: darkenColor(getNodeColor(node)),
+                    highlight: { background: '#fbbf24', border: '#f59e0b' }
+                },
+                size: getNodeSize(node),
+                font: { size: 14, color: '#1f2937', face: 'Inter' },
+                borderWidth: 2,
+                originalColor: getNodeColor(node),
+                originalSize: getNodeSize(node)
+            })));
+            
+            const edges = new vis.DataSet(edgesData.map((edge, idx) => {
+                const relation = edge.label || '';
+                return {
+                    id: idx,
+                    from: nodesData[edge.from].id,
+                    to: nodesData[edge.to].id,
+                    label: relation,
+                    title: `${relation}\nWeight: ${edge.width.toFixed(1)}`,
+                    width: Math.max(1, edge.width),
+                    color: { color: '#cbd5e1', highlight: '#3b82f6' },
+                    arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+                    font: { size: 11, color: '#6b7280', strokeWidth: 0 },
+                    smooth: { type: 'continuous' }
+                };
+            }));
+            
+            const container = document.getElementById('network-container');
+            console.log('Container:', container, 'Size:', container.offsetWidth, 'x', container.offsetHeight);
+            
+            const data = { nodes, edges };
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    shadow: { enabled: true, size: 5, x: 2, y: 2 }
+                },
+                edges: {
+                    shadow: { enabled: false }
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: { iterations: 150 },
+                    barnesHut: {
+                        gravitationalConstant: -3000,
+                        centralGravity: 0.3,
+                        springLength: 120,
+                        springConstant: 0.04,
+                        damping: 0.09
+                    }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100,
+                    navigationButtons: false,
+                    keyboard: true,
+                    zoomSpeed: 0.5
+                },
+                layout: {
+                    improvedLayout: true
+                }
+            };
+            
+            if (network) {
+                console.log('Updating existing network');
+                network.setData(data);
+                network.fit();
+            } else {
+                console.log('Creating new network');
+                network = new vis.Network(container, data, options);
+                
+                network.on('stabilizationIterationsDone', () => {
+                    console.log('Stabilization done');
+                    network.setOptions({ physics: false });
+                });
+                
+                network.once('afterDrawing', () => {
+                    console.log('Network drawn successfully');
+                });
+            }
+        }
+        
+        function getNodeColor(node) {
+            if (node.id === document.getElementById('companyInput').value.trim()) {
+                return '#3b82f6'; // Blue for query company
+            }
+            const risk = node.riskscore;
+            if (risk >= 0.7) return '#ef4444'; // Red
+            if (risk >= 0.4) return '#f59e0b'; // Orange
+            return '#10b981'; // Green
+        }
+        
+        function getNodeSize(node) {
+            const baseSize = 20;
+            const risk = node.riskscore;
+            return baseSize + (1 - risk) * 15; // Larger = lower risk
+        }
+        
+        function darkenColor(color) {
+            const colors = {
+                '#ef4444': '#dc2626',
+                '#f59e0b': '#d97706',
+                '#10b981': '#059669',
+                '#3b82f6': '#2563eb'
+            };
+            return colors[color] || color;
+        }
+        
+        function calculateHighlights(companyId, patterns, nodes) {
+            const nodeIds = {};
+            nodes.forEach((node, idx) => nodeIds[node.id] = idx);
+            
+            return {
+                shell: (patterns.pattern1_shell || [])
+                    .filter(p => p.chain && p.chain.includes(companyId))
+                    .map(p => ({ nodes: p.chain.filter(c => nodeIds[c] !== undefined).map(c => nodeIds[c]) })),
+                
+                circular: (patterns.pattern2_circular || [])
+                    .filter(p => p.cycle && p.cycle.includes(companyId))
+                    .map(p => ({ nodes: p.cycle.filter(c => nodeIds[c] !== undefined).map(c => nodeIds[c]) })),
+                
+                hidden: (patterns.pattern3_hidden || [])
+                    .map(p => {
+                        const ids = [p.shareholderId, p.supplierId, companyId];
+                        return { nodes: ids.filter(id => nodeIds[id] !== undefined).map(id => nodeIds[id]) };
+                    })
+            };
+        }
+        
+        function highlightPattern(type) {
+            resetView();
+            
+            document.querySelectorAll('.control-btn').forEach(btn => {
+                if (btn.textContent.includes({ shell: 'Shell', circular: 'Circular', hidden: 'Hidden' }[type])) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            currentHighlight = type;
+            const highlight = highlights[type];
+            
+            if (!highlight || highlight.length === 0) {
+                showError(`No ${type} patterns detected for this company`);
+                return;
+            }
+            
+            const highlightNodes = [];
+            highlight.forEach(h => highlightNodes.push(...h.nodes.map(idx => nodesData[idx].id)));
+            
+            if (highlightNodes.length > 0) {
+                network.body.data.nodes.forEach(node => {
+                    network.body.data.nodes.update({
+                        id: node.id,
+                        color: { background: '#e5e7eb', border: '#d1d5db' },
+                        size: node.originalSize * 0.7
+                    });
+                });
+                
+                highlightNodes.forEach(nodeId => {
+                    const node = network.body.data.nodes.get(nodeId);
+                    if (node) {
+                        network.body.data.nodes.update({
+                            id: nodeId,
+                            color: { background: '#fbbf24', border: '#f59e0b' },
+                            size: node.originalSize * 1.2
+                        });
+                    }
+                });
+                
+                network.fit({ nodes: highlightNodes, animation: { duration: 500 } });
+            }
+        }
+        
+        function resetView() {
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            currentHighlight = null;
+            
+            network.body.data.nodes.forEach(node => {
+                const original = nodesData.find(n => n.id === node.id);
+                if (original) {
+                    network.body.data.nodes.update({
+                        id: node.id,
+                        color: { background: node.originalColor, border: darkenColor(node.originalColor) },
+                        size: node.originalSize
+                    });
+                }
+            });
+            
+            network.fit({ animation: { duration: 500 } });
+        }
+        
+        function populatePatterns() {
+            populateShellPatterns();
+            populateCircularPatterns();
+            populateHiddenPatterns();
+        }
+        
+        function populateShellPatterns() {
+            const container = document.getElementById('shell-patterns');
+            const shellPatterns = patterns.pattern1_shell || [];
+            
+            if (shellPatterns.length === 0) {
+                container.innerHTML = '<div class="no-patterns">No shell chains detected</div>';
+                return;
+            }
+            
+            container.innerHTML = shellPatterns.map((p, idx) => `
+                <div class="pattern-card">
+                    <div class="pattern-title">Chain ${idx + 1} <span class="badge high">Risk: ${p.riskScore}</span></div>
+                    <div class="pattern-detail">Length: ${p.chainLength} companies</div>
+                    <div class="pattern-detail">Auditor: ${p.auditorId}</div>
+                    <div class="pattern-companies">${p.chain.join(' → ')}</div>
+                </div>
+            `).join('');
+        }
+        
+        function populateCircularPatterns() {
+            const container = document.getElementById('circular-patterns');
+            const circular = patterns.pattern2_circular || [];
+            
+            if (circular.length === 0) {
+                container.innerHTML = '<div class="no-patterns">No circular trade detected</div>';
+                return;
+            }
+            
+            container.innerHTML = circular.map((p, idx) => `
+                <div class="pattern-card">
+                    <div class="pattern-title">Cycle ${idx + 1} <span class="badge ${p.riskScore >= 0.7 ? 'high' : 'medium'}">Risk: ${p.riskScore.toFixed(2)}</span></div>
+                    <div class="pattern-detail">Volume: $${p.totalVolume.toFixed(0)}M</div>
+                    <div class="pattern-detail">Isolation: ${(p.isolationScore * 100).toFixed(1)}%</div>
+                    <div class="pattern-companies">${p.cycle.join(' → ')}</div>
+                </div>
+            `).join('');
+        }
+        
+        function populateHiddenPatterns() {
+            const container = document.getElementById('hidden-patterns');
+            const hidden = patterns.pattern3_hidden || [];
+            
+            if (hidden.length === 0) {
+                container.innerHTML = '<div class="no-patterns">No hidden influence detected</div>';
+                return;
+            }
+            
+            container.innerHTML = hidden.map((p, idx) => `
+                <div class="pattern-card">
+                    <div class="pattern-title">Pattern ${idx + 1} <span class="badge low">Opp: ${p.opportunityScore.toFixed(2)}</span></div>
+                    <div class="pattern-detail">Shareholder: ${p.shareholderId}</div>
+                    <div class="pattern-detail">Supplier: ${p.supplierId}</div>
+                    <div class="pattern-detail">Ownership: ${p.ownershipPct.toFixed(1)}%</div>
+                    <div class="pattern-detail">Concentration: ${p.concentrationPct.toFixed(1)}%</div>
+                </div>
+            `).join('');
+        }
+        
+        function hasPatterns() {
+            return (patterns.pattern1_shell && patterns.pattern1_shell.length > 0) ||
+                   (patterns.pattern2_circular && patterns.pattern2_circular.length > 0) ||
+                   (patterns.pattern3_hidden && patterns.pattern3_hidden.length > 0);
+        }
+        
+        function showError(message) {
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('error').classList.add('active');
+            setTimeout(closeError, 5000);
+        }
+        
+        function closeError() {
+            document.getElementById('error').classList.remove('active');
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+<script>
+  let network = null;
+  let nodesData;
+  let edgesData;
+  let highlights;
+  let patterns;
+  let currentHighlight = null;
+
+  const API_ENDPOINT = "http://localhost:8000";
+
+  document.getElementById("companyInput").addEventListener("keypress", function (e) {
+    if (e.key === "Enter") analyzeCompany();
+  });
+
+  async function analyzeCompany() {
+    const companyId = document.getElementById("companyInput").value.trim();
+    if (!companyId) {
+      showError("Please enter a company ID");
+      return;
+    }
+
+    document.getElementById("loading").classList.add("active");
+    document.getElementById("analyzeBtn").disabled = true;
+    document.getElementById("statsBar").style.display = "none";
+    document.getElementById("sidebar").classList.remove("active");
+
+    try {
+      const response = await fetch(`${API_ENDPOINT}/company/${companyId}`);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || `HTTP ${response.status}`);
+      }
+      const data = await response.json();
+      displayResults(companyId, data);
+    } catch (error) {
+      showError(error.message || "Failed to connect to API. Ensure the server is running.");
+    } finally {
+      document.getElementById("loading").classList.remove("active");
+      document.getElementById("analyzeBtn").disabled = false;
+    }
+  }
+
+  function displayResults(companyId, data) {
+    // stats
+    const riskValue = document.getElementById("riskScore");
+    riskValue.textContent = data.riskscore.toFixed(2);
+    riskValue.className = "stat-value " + (data.riskscore >= 0.7 ? "risk-high" : "risk-low");
+
+    document.getElementById("totalNodes").textContent = data.visualizationdata.nodes.length;
+    document.getElementById("totalEdges").textContent = data.visualizationdata.edges.length;
+    document.getElementById("statsBar").style.display = "flex";
+
+    nodesData = data.visualizationdata.nodes;
+    edgesData = data.visualizationdata.edges;
+    patterns = data.patterns;
+
+    // build highlight sets for all three fraud chains
+    highlights = calculateHighlights(companyId, patterns, nodesData);
+
+    createNetwork();
+    populatePatterns();
+
+    if (hasPatterns()) {
+      document.getElementById("sidebar").classList.add("active");
+    }
+  }
+
+  function createNetwork() {
+    console.log(
+      "Creating network with",
+      nodesData.length,
+      "nodes and",
+      edgesData.length,
+      "edges"
+    );
+
+    const queryId = document.getElementById("companyInput").value.trim();
+
+    const nodes = new vis.DataSet(
+      nodesData.map((node) => {
+        const baseColor = getNodeColor(node, queryId);
+        const baseSize = getNodeSize(node, queryId);
+        return {
+          id: node.id,
+          label: node.id,
+          title: `${node.id} • ${node.type} • ${node.riskscore.toFixed(2)}`,
+          color: {
+            background: baseColor,
+            border: darkenColor(baseColor),
+            highlight: {
+              background: "#fbbf24",
+              border: "#f59e0b",
+            },
+          },
+          size: baseSize,
+          font: { size: 14, color: "#1f2937", face: "Inter" },
+          borderWidth: 2,
+          originalColor: baseColor,
+          originalSize: baseSize,
+          riskscore: node.riskscore,
+        };
+      })
+    );
+
+    const edges = new vis.DataSet(
+      edgesData.map((edge, idx) => {
+        const relation = edge.label;
+        return {
+          id: idx,
+          from: nodesData[edge.from].id,
+          to: nodesData[edge.to].id,
+          label: relation,
+          title: `${relation} ${edge.width.toFixed(1)}`,
+          width: Math.max(1, edge.width),
+          color: {
+            color: "#cbd5e1",
+            highlight: "#3b82f6",
+          },
+          arrows: {
+            to: { enabled: true, scaleFactor: 0.5 },
+          },
+          font: {
+            size: 11,
+            color: "#6b7280",
+            strokeWidth: 0,
+          },
+          smooth: { type: "continuous" },
+        };
+      })
+    );
+
+    const container = document.getElementById("network-container");
+    const data = { nodes, edges };
+
+    const options = {
+      nodes: {
+        shape: "dot",
+        shadow: { enabled: true, x: 2, y: 2 },
+      },
+      edges: {
+        shadow: { enabled: false },
+      },
+      physics: {
+        enabled: true,
+        stabilization: { iterations: 150 },
+        barnesHut: {
+          gravitationalConstant: -3000,
+          centralGravity: 0.3,
+          springLength: 120,
+          springConstant: 0.04,
+          damping: 0.09,
+        },
+      },
+      interaction: {
+        hover: true,
+        tooltipDelay: 100,
+        navigationButtons: false,
+        keyboard: true,
+        zoomSpeed: 0.5,
+      },
+      layout: {
+        improvedLayout: true,
+      },
+    };
+
+    if (network) {
+      console.log("Updating existing network");
+      network.setData(data);
+      network.fit();
+    } else {
+      console.log("Creating new network");
+      network = new vis.Network(container, data, options);
+      network.on("stabilizationIterationsDone", function () {
+        console.log("Stabilization done");
+        network.setOptions({ physics: false });
+      });
+      network.once("afterDrawing", function () {
+        console.log("Network drawn successfully");
+      });
+    }
+
+    // auto focus on the queried node
+    const center = nodes.get(queryId);
+    if (center) {
+      network.focus(queryId, { scale: 1.2, animation: { duration: 400 } });
+    }
+  }
+
+  // color rules: queried node strong blue, others by risk
+  function getNodeColor(node, queryId) {
+    if (node.id === queryId) {
+      return "#1d4ed8"; // highlighted query company
+    }
+    const risk = node.riskscore;
+    if (risk >= 0.7) return "#ef4444";
+    if (risk >= 0.4) return "#f59e0b";
+    return "#10b981";
+  }
+
+  // size rules: queried node larger
+  function getNodeSize(node, queryId) {
+    if (node.id === queryId) {
+      return 40;
+    }
+    const baseSize = 20;
+    const risk = node.riskscore;
+    return baseSize * (1 - risk * 0.3);
+  }
+
+  function darkenColor(color) {
+    const colors = {
+      "#ef4444": "#dc2626",
+      "#f59e0b": "#d97706",
+      "#10b981": "#059669",
+      "#3b82f6": "#2563eb",
+      "#1d4ed8": "#1e40af",
+    };
+    return colors[color] || color;
+  }
+
+  // Build pattern highlight node-id sets from API patterns
+  function calculateHighlights(companyId, patterns, nodes) {
+    const idToIndex = {};
+    nodes.forEach((n, idx) => {
+      idToIndex[n.id] = idx;
+    });
+
+    // 1) Shell company fraud: all shell companies + their auditors
+    const shell = (patterns.pattern1_shell || []).map((p) => {
+      const nodeIds = new Set();
+      (p.chain || []).forEach((cid) => {
+        if (idToIndex[cid] !== undefined) nodeIds.add(cid);
+      });
+      if (p.auditorId && idToIndex[p.auditorId] !== undefined) {
+        nodeIds.add(p.auditorId);
+      }
+      return { nodeIds: Array.from(nodeIds) };
+    });
+
+    // 2) Circular trade chain: all companies in the cycle
+    const circular = (patterns.pattern2_circular || []).map((p) => {
+      const nodeIds = new Set();
+      (p.cycle || []).forEach((cid) => {
+        if (idToIndex[cid] !== undefined) nodeIds.add(cid);
+      });
+      return { nodeIds: Array.from(nodeIds) };
+    });
+
+    // 3) Ownership / hidden influence: shareholder + supplier + focal company
+    const hidden = (patterns.pattern3_hidden || []).map((p) => {
+      const nodeIds = new Set();
+      if (p.shareholderId && idToIndex[p.shareholderId] !== undefined) {
+        nodeIds.add(p.shareholderId);
+      }
+      if (p.supplierId && idToIndex[p.supplierId] !== undefined) {
+        nodeIds.add(p.supplierId);
+      }
+      if (idToIndex[companyId] !== undefined) nodeIds.add(companyId);
+      return { nodeIds: Array.from(nodeIds) };
+    });
+
+    return { shell, circular, hidden };
+  }
+
+  // Highlight one of the three fraud chains
+  function highlightPattern(type) {
+    if (!network) return;
+
+    const nodesDS = network.body.data.nodes;
+    const queryId = document.getElementById("companyInput").value.trim();
+
+    // clear previous active buttons
+    document.querySelectorAll(".control-btn").forEach((btn) =>
+      btn.classList.remove("active")
+    );
+
+    // mark clicked button as active
+    document.querySelectorAll(".control-btn").forEach((btn) => {
+      if (btn.textContent.includes("Shell") && type === "shell")
+        btn.classList.add("active");
+      if (btn.textContent.includes("Circular") && type === "circular")
+        btn.classList.add("active");
+      if (btn.textContent.includes("Hidden") && type === "hidden")
+        btn.classList.add("active");
+    });
+
+    currentHighlight = type;
+    const set = highlights[type] || [];
+    if (!set.length) {
+      showError(`No ${type} fraud chain detected for this company`);
+      return;
+    }
+
+    const highlightIds = new Set();
+    set.forEach((p) => p.nodeIds.forEach((id) => highlightIds.add(id)));
+
+    if (!highlightIds.size) return;
+
+    // dim all nodes
+    nodesDS.forEach((node) => {
+      nodesDS.update({
+        id: node.id,
+        color: {
+          background: "#e5e7eb",
+          border: "#d1d5db",
+        },
+        size: node.originalSize * 0.7,
+      });
+    });
+
+    // highlight fraud chain nodes
+    highlightIds.forEach((id) => {
+      const node = nodesDS.get(id);
+      if (!node) return;
+      nodesDS.update({
+        id,
+        color: {
+          background: "#f97316", // bright orange for fraud chain
+          border: "#ea580c",
+        },
+        size: node.originalSize * 1.4,
+      });
+    });
+
+    // emphasize queried node if in chain
+    if (highlightIds.has(queryId)) {
+      const center = nodesDS.get(queryId);
+      if (center) {
+        nodesDS.update({
+          id: queryId,
+          color: {
+            background: "#b91c1c",
+            border: "#7f1d1d",
+          },
+          size: center.originalSize * 1.6,
+        });
+      }
+    }
+
+    network.fit({
+      nodes: Array.from(highlightIds),
+      animation: { duration: 500 },
+    });
+  }
+
+  function resetView() {
+    if (!network) return;
+
+    document.querySelectorAll(".control-btn").forEach((btn) =>
+      btn.classList.remove("active")
+    );
+    currentHighlight = null;
+
+    const nodesDS = network.body.data.nodes;
+    const queryId = document.getElementById("companyInput").value.trim();
+
+    nodesDS.forEach((node) => {
+      const baseColor = getNodeColor(
+        { id: node.id, riskscore: node.riskscore || 0 },
+        queryId
+      );
+      nodesDS.update({
+        id: node.id,
+        color: {
+          background: baseColor,
+          border: darkenColor(baseColor),
+        },
+        size: node.originalSize,
+      });
+    });
+
+    network.fit({ animation: { duration: 500 } });
+  }
+
+  function populatePatterns() {
+    populateShellPatterns();
+    populateCircularPatterns();
+    populateHiddenPatterns();
+  }
+
+  function populateShellPatterns() {
+    const container = document.getElementById("shell-patterns");
+    const shellPatterns = patterns.pattern1_shell || [];
+
+    if (!shellPatterns.length) {
+      container.innerHTML = '<div class="no-patterns">No shell chains detected</div>';
+      return;
+    }
+
+    container.innerHTML = shellPatterns
+      .map(
+        (p, idx) => `
+        <div class="pattern-card">
+          <div class="pattern-title">
+            Chain ${idx + 1}
+            <span class="badge high">Risk ${p.riskScore.toFixed(2)}</span>
+          </div>
+          <div class="pattern-detail">Length: ${p.chainLength} companies</div>
+          <div class="pattern-detail">Auditor: ${p.auditorId}</div>
+          <div class="pattern-detail">Avg Invoices: ${p.avgInvoices}</div>
+          <div class="pattern-companies">${p.chain.join(" → ")}</div>
+        </div>
+      `
+      )
+      .join("");
+  }
+
+  function populateCircularPatterns() {
+    const container = document.getElementById("circular-patterns");
+    const circular = patterns.pattern2_circular || [];
+
+    if (!circular.length) {
+      container.innerHTML =
+        '<div class="no-patterns">No circular trade detected</div>';
+      return;
+    }
+
+    container.innerHTML = circular
+      .map(
+        (p, idx) => `
+        <div class="pattern-card">
+          <div class="pattern-title">
+            Cycle ${idx + 1}
+            <span class="badge ${p.riskScore >= 0.7 ? "high" : "medium"}">
+              Risk ${p.riskScore.toFixed(2)}
+            </span>
+          </div>
+          <div class="pattern-detail">Volume: ${p.totalVolume.toFixed(0)}M</div>
+          <div class="pattern-detail">Isolation: ${(p.isolationScore * 100).toFixed(1)}%</div>
+          <div class="pattern-companies">${p.cycle.join(" → ")}</div>
+        </div>
+      `
+      )
+      .join("");
+  }
+
+  function populateHiddenPatterns() {
+    const container = document.getElementById("hidden-patterns");
+    const hidden = patterns.pattern3_hidden || [];
+
+    if (!hidden.length) {
+      container.innerHTML =
+        '<div class="no-patterns">No hidden influence detected</div>';
+      return;
+    }
+
+    container.innerHTML = hidden
+      .map(
+        (p, idx) => `
+        <div class="pattern-card">
+          <div class="pattern-title">
+            Pattern ${idx + 1}
+            <span class="badge low">Opp ${p.opportunityScore.toFixed(2)}</span>
+          </div>
+          <div class="pattern-detail">Shareholder: ${p.shareholderId}</div>
+          <div class="pattern-detail">Supplier: ${p.supplierId}</div>
+          <div class="pattern-detail">Ownership: ${p.ownershipPct.toFixed(1)}%</div>
+          <div class="pattern-detail">Concentration: ${p.concentrationPct.toFixed(1)}%</div>
+        </div>
+      `
+      )
+      .join("");
+  }
+
+  function hasPatterns() {
+    return (
+      (patterns.pattern1_shell && patterns.pattern1_shell.length > 0) ||
+      (patterns.pattern2_circular && patterns.pattern2_circular.length > 0) ||
+      (patterns.pattern3_hidden && patterns.pattern3_hidden.length > 0)
+    );
+  }
+
+  function showError(message) {
+    document.getElementById("errorMessage").textContent = message;
+    document.getElementById("error").classList.add("active");
+    setTimeout(closeError, 5000);
+  }
+
+  function closeError() {
+    document.getElementById("error").classList.remove("active");
+  }
+</script>
