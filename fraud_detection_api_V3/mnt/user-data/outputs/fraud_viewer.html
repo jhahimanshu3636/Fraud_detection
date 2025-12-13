@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Network Viewer</title>
+    <script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .search-container {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            margin: 20px auto 0;
+            align-items: center;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .search-container input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .search-container input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .search-container button {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            background: #27AE60;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .search-container button:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .search-container button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .api-config {
+            margin-top: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .api-config input {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            width: 300px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            display: none;
+            background: #E74C3C;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .error.active {
+            display: block;
+        }
+        
+        .stats-bar {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .stats-bar.active {
+            display: grid;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .label {
+            color: #6c757d;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-card.risk {
+            border-left: 4px solid #E74C3C;
+        }
+        
+        .stat-card.opportunity {
+            border-left: 4px solid #27AE60;
+        }
+        
+        .stat-card.info {
+            border-left: 4px solid #4A90E2;
+        }
+        
+        .main-content {
+            display: none;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .main-content.active {
+            display: grid;
+        }
+        
+        #network-container {
+            height: 700px;
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            background: #fafafa;
+            position: relative;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .controls button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 6px;
+            background: #4A90E2;
+            color: white;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        
+        .controls button:hover {
+            background: #357ABD;
+        }
+        
+        .controls button.active {
+            background: #27AE60;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 700px;
+        }
+        
+        .pattern-section {
+            margin-bottom: 25px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4A90E2;
+        }
+        
+        .pattern-section h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .pattern-item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+        
+        .pattern-item strong {
+            color: #495057;
+        }
+        
+        .legend {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .legend h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .no-patterns {
+            text-align: center;
+            color: #6c757d;
+            padding: 20px;
+            font-style: italic;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .badge.high-risk {
+            background: #E74C3C;
+            color: white;
+        }
+        
+        .badge.medium-risk {
+            background: #F39C12;
+            color: white;
+        }
+        
+        .badge.low-risk {
+            background: #27AE60;
+            color: white;
+        }
+        
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                max-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Fraud Detection Network Viewer</h1>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="companyInput" 
+                    placeholder="Enter Company ID (e.g., c32)" 
+                    value="c32"
+                >
+                <button id="analyzeBtn" onclick="analyzeCompany()">Analyze</button>
+            </div>
+            <div class="api-config">
+                <label>API Endpoint: </label>
+                <input 
+                    type="text" 
+                    id="apiEndpoint" 
+                    value="http://localhost:8000"
+                    placeholder="http://localhost:8000"
+                >
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing company and building network graph...</p>
+        </div>
+        
+        <div class="error" id="error"></div>
+        
+        <div class="stats-bar" id="statsBar">
+            <div class="stat-card risk">
+                <div class="value" id="riskScore">-</div>
+                <div class="label">Risk Score</div>
+            </div>
+            <div class="stat-card opportunity">
+                <div class="value" id="opportunityScore">-</div>
+                <div class="label">Opportunity Score</div>
+            </div>
+            <div class="stat-card info">
+                <div class="value" id="totalNodes">-</div>
+                <div class="label">Total Entities</div>
+            </div>
+            <div class="stat-card info">
+                <div class="value" id="totalEdges">-</div>
+                <div class="label">Relationships</div>
+            </div>
+            <div class="stat-card risk">
+                <div class="value" id="highRiskNodes">-</div>
+                <div class="label">High Risk Nodes</div>
+            </div>
+        </div>
+        
+        <div class="main-content" id="mainContent">
+            <div>
+                <div id="network-container">
+                    <div class="controls">
+                        <button id="highlight-shell" onclick="highlightPattern('shell')">
+                            🔗 Shell Chains
+                        </button>
+                        <button id="highlight-circular" onclick="highlightPattern('circular')">
+                            🔄 Circular Trade
+                        </button>
+                        <button id="highlight-hidden" onclick="highlightPattern('hidden')">
+                            👁️ Hidden Influence
+                        </button>
+                        <button id="reset-view" onclick="resetView()">
+                            ↺ Reset View
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="legend">
+                    <h3>Legend</h3>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #E74C3C;"></div>
+                        <span>High Risk (≥0.7)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #F39C12;"></div>
+                        <span>Medium Risk (0.4-0.7)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #27AE60;"></div>
+                        <span>Low Risk (<0.4)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4A90E2;"></div>
+                        <span>Query Company</span>
+                    </div>
+                </div>
+                
+                <div class="pattern-section">
+                    <h3>🔗 Shell Company Chains</h3>
+                    <div id="shell-patterns"></div>
+                </div>
+                
+                <div class="pattern-section">
+                    <h3>🔄 Circular Trade Patterns</h3>
+                    <div id="circular-patterns"></div>
+                </div>
+                
+                <div class="pattern-section">
+                    <h3>👁️ Hidden Influence Patterns</h3>
+                    <div id="hidden-patterns"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let network = null;
+        let nodesData = [];
+        let edgesData = [];
+        let highlights = {};
+        let patterns = {};
+        let currentHighlight = null;
+        
+        // Allow Enter key to trigger analysis
+        document.getElementById('companyInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                analyzeCompany();
+            }
+        });
+        
+        async function analyzeCompany() {
+            const companyId = document.getElementById('companyInput').value.trim();
+            const apiEndpoint = document.getElementById('apiEndpoint').value.trim();
+            
+            if (!companyId) {
+                showError('Please enter a company ID');
+                return;
+            }
+            
+            // Show loading, hide content and errors
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('error').classList.remove('active');
+            document.getElementById('statsBar').classList.remove('active');
+            document.getElementById('mainContent').classList.remove('active');
+            document.getElementById('analyzeBtn').disabled = true;
+            
+            try {
+                // Fetch data from FastAPI
+                const response = await fetch(`${apiEndpoint}/company/${companyId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // Process and display data
+                displayResults(companyId, data);
+                
+            } catch (error) {
+                showError(`Failed to analyze company: ${error.message}`);
+                console.error('Error:', error);
+            } finally {
+                document.getElementById('loading').classList.remove('active');
+                document.getElementById('analyzeBtn').disabled = false;
+            }
+        }
+        
+        function displayResults(companyId, data) {
+            // Update statistics
+            document.getElementById('riskScore').textContent = data.riskscore.toFixed(2);
+            document.getElementById('opportunityScore').textContent = data.opportunityscore.toFixed(2);
+            document.getElementById('totalNodes').textContent = data.visualizationdata.nodes.length;
+            document.getElementById('totalEdges').textContent = data.visualizationdata.edges.length;
+            
+            const highRisk = data.visualizationdata.nodes.filter(n => n.riskscore >= 0.7).length;
+            document.getElementById('highRiskNodes').textContent = highRisk;
+            
+            // Store data
+            nodesData = data.visualizationdata.nodes;
+            edgesData = data.visualizationdata.edges;
+            patterns = data.patterns;
+            
+            // Calculate highlights
+            highlights = calculateHighlights(companyId, patterns, nodesData);
+            
+            // Create network visualization
+            createNetwork();
+            
+            // Populate pattern details
+            populatePatterns();
+            
+            // Show results
+            document.getElementById('statsBar').classList.add('active');
+            document.getElementById('mainContent').classList.add('active');
+        }
+        
+        function createNetwork() {
+            // Create vis.js nodes
+            const nodes = new vis.DataSet(nodesData.map(node => ({
+                id: node.id,
+                label: node.label,
+                title: `${node.label}\nType: ${node.type}\nRisk: ${node.riskscore.toFixed(2)}`,
+                color: {
+                    background: node.color,
+                    border: node.color,
+                    highlight: {
+                        background: '#FFD700',
+                        border: '#FFA500'
+                    }
+                },
+                size: node.size,
+                font: {
+                    size: 12,
+                    color: '#2c3e50'
+                },
+                originalColor: node.color,
+                originalSize: node.size
+            })));
+            
+            // Create vis.js edges
+            const edges = new vis.DataSet(edgesData.map((edge, idx) => ({
+                id: idx,
+                from: nodesData[edge.from].id,
+                to: nodesData[edge.to].id,
+                label: edge.label,
+                title: edge.label,
+                width: edge.width,
+                color: {
+                    color: '#95a5a6',
+                    highlight: '#e74c3c'
+                },
+                arrows: 'to',
+                font: {
+                    size: 10,
+                    align: 'middle'
+                }
+            })));
+            
+            // Network configuration
+            const container = document.getElementById('network-container');
+            const data = { nodes, edges };
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    borderWidth: 2,
+                    shadow: true
+                },
+                edges: {
+                    smooth: {
+                        type: 'continuous'
+                    },
+                    shadow: true
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: {
+                        iterations: 200
+                    },
+                    barnesHut: {
+                        gravitationalConstant: -8000,
+                        centralGravity: 0.3,
+                        springLength: 150,
+                        springConstant: 0.04
+                    }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100,
+                    navigationButtons: true,
+                    keyboard: true
+                }
+            };
+            
+            // Create or update network
+            if (network) {
+                network.setData(data);
+            } else {
+                network = new vis.Network(container, data, options);
+                
+                network.on('stabilizationIterationsDone', function() {
+                    network.setOptions({ physics: false });
+                });
+            }
+        }
+        
+        function calculateHighlights(companyId, patterns, nodes) {
+            const nodeIds = {};
+            nodes.forEach((node, idx) => {
+                nodeIds[node.id] = idx;
+            });
+            
+            const highlights = {
+                shell_chains: [],
+                circular_cycles: [],
+                hidden_influence: []
+            };
+            
+            // Shell chains
+            if (patterns.pattern1_shell) {
+                patterns.pattern1_shell.forEach(pattern => {
+                    if (pattern.chain && pattern.chain.includes(companyId)) {
+                        const chainIndices = pattern.chain
+                            .filter(c => nodeIds[c] !== undefined)
+                            .map(c => nodeIds[c]);
+                        highlights.shell_chains.push({
+                            nodes: chainIndices,
+                            auditor: pattern.auditorId,
+                            risk_score: pattern.riskScore
+                        });
+                    }
+                });
+            }
+            
+            // Circular trade
+            if (patterns.pattern2_circular) {
+                patterns.pattern2_circular.forEach(pattern => {
+                    if (pattern.cycle && pattern.cycle.includes(companyId)) {
+                        const cycleIndices = pattern.cycle
+                            .filter(c => nodeIds[c] !== undefined)
+                            .map(c => nodeIds[c]);
+                        highlights.circular_cycles.push({
+                            nodes: cycleIndices,
+                            total_volume: pattern.totalVolume,
+                            isolation_score: pattern.isolationScore
+                        });
+                    }
+                });
+            }
+            
+            // Hidden influence
+            if (patterns.pattern3_hidden) {
+                patterns.pattern3_hidden.forEach(pattern => {
+                    const involvedIds = [
+                        pattern.shareholderId,
+                        pattern.supplierId,
+                        companyId
+                    ];
+                    const involvedIndices = involvedIds
+                        .filter(id => nodeIds[id] !== undefined)
+                        .map(id => nodeIds[id]);
+                    highlights.hidden_influence.push({
+                        nodes: involvedIndices,
+                        shareholder: pattern.shareholderId,
+                        supplier: pattern.supplierId,
+                        concentration: pattern.concentrationPct
+                    });
+                });
+            }
+            
+            return highlights;
+        }
+        
+        function highlightPattern(patternType) {
+            resetView();
+            
+            const button = document.getElementById(`highlight-${patternType}`);
+            button.classList.add('active');
+            currentHighlight = patternType;
+            
+            let highlightNodes = [];
+            
+            if (patternType === 'shell' && highlights.shell_chains.length > 0) {
+                highlights.shell_chains.forEach(chain => {
+                    highlightNodes = highlightNodes.concat(
+                        chain.nodes.map(idx => nodesData[idx].id)
+                    );
+                });
+            } else if (patternType === 'circular' && highlights.circular_cycles.length > 0) {
+                highlights.circular_cycles.forEach(cycle => {
+                    highlightNodes = highlightNodes.concat(
+                        cycle.nodes.map(idx => nodesData[idx].id)
+                    );
+                });
+            } else if (patternType === 'hidden' && highlights.hidden_influence.length > 0) {
+                highlights.hidden_influence.forEach(hidden => {
+                    highlightNodes = highlightNodes.concat(
+                        hidden.nodes.map(idx => nodesData[idx].id)
+                    );
+                });
+            }
+            
+            if (highlightNodes.length > 0) {
+                // Dim all nodes
+                network.body.data.nodes.forEach(node => {
+                    network.body.data.nodes.update({
+                        id: node.id,
+                        color: {
+                            background: '#e0e0e0',
+                            border: '#bdbdbd'
+                        },
+                        size: node.originalSize * 0.8
+                    });
+                });
+                
+                // Highlight selected nodes
+                highlightNodes.forEach(nodeId => {
+                    const node = network.body.data.nodes.get(nodeId);
+                    if (node) {
+                        network.body.data.nodes.update({
+                            id: nodeId,
+                            color: {
+                                background: '#FFD700',
+                                border: '#FFA500'
+                            },
+                            size: node.originalSize * 1.3
+                        });
+                    }
+                });
+                
+                // Fit view to highlighted nodes
+                network.fit({
+                    nodes: highlightNodes,
+                    animation: true
+                });
+            } else {
+                showError(`No ${patternType} patterns detected for this company`);
+            }
+        }
+        
+        function resetView() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.controls button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            currentHighlight = null;
+            
+            // Restore original colors and sizes
+            network.body.data.nodes.forEach(node => {
+                const originalNode = nodesData.find(n => n.id === node.id);
+                if (originalNode) {
+                    network.body.data.nodes.update({
+                        id: node.id,
+                        color: {
+                            background: originalNode.color,
+                            border: originalNode.color
+                        },
+                        size: originalNode.size
+                    });
+                }
+            });
+            
+            network.fit({ animation: true });
+        }
+        
+        function populatePatterns() {
+            // Shell chains
+            const shellContainer = document.getElementById('shell-patterns');
+            if (!patterns.pattern1_shell || patterns.pattern1_shell.length === 0) {
+                shellContainer.innerHTML = '<div class="no-patterns">No shell chains detected</div>';
+            } else {
+                shellContainer.innerHTML = patterns.pattern1_shell.map((pattern, idx) => `
+                    <div class="pattern-item">
+                        <strong>Chain ${idx + 1}</strong>
+                        <span class="badge high-risk">Risk: ${pattern.riskScore}</span>
+                        <br>Length: ${pattern.chainLength} companies
+                        <br>Auditor: ${pattern.auditorId}
+                        <br>Avg Invoices: ${pattern.avgInvoices}
+                    </div>
+                `).join('');
+            }
+            
+            // Circular trade
+            const circularContainer = document.getElementById('circular-patterns');
+            if (!patterns.pattern2_circular || patterns.pattern2_circular.length === 0) {
+                circularContainer.innerHTML = '<div class="no-patterns">No circular trade detected</div>';
+            } else {
+                circularContainer.innerHTML = patterns.pattern2_circular.map((pattern, idx) => `
+                    <div class="pattern-item">
+                        <strong>Cycle ${idx + 1}</strong>
+                        <span class="badge ${pattern.riskScore >= 0.7 ? 'high-risk' : 'medium-risk'}">
+                            Risk: ${pattern.riskScore.toFixed(2)}
+                        </span>
+                        <br>Volume: $${pattern.totalVolume.toFixed(0)}M
+                        <br>Isolation: ${(pattern.isolationScore * 100).toFixed(1)}%
+                        <br>Companies: ${pattern.cycle.join(' → ')}
+                    </div>
+                `).join('');
+            }
+            
+            // Hidden influence
+            const hiddenContainer = document.getElementById('hidden-patterns');
+            if (!patterns.pattern3_hidden || patterns.pattern3_hidden.length === 0) {
+                hiddenContainer.innerHTML = '<div class="no-patterns">No hidden influence detected</div>';
+            } else {
+                hiddenContainer.innerHTML = patterns.pattern3_hidden.map((pattern, idx) => `
+                    <div class="pattern-item">
+                        <strong>Pattern ${idx + 1}</strong>
+                        <span class="badge low-risk">Opp: ${pattern.opportunityScore.toFixed(2)}</span>
+                        <br>Shareholder: ${pattern.shareholderId}
+                        <br>Via Supplier: ${pattern.supplierId}
+                        <br>Concentration: ${pattern.concentrationPct.toFixed(1)}%
+                        <br>Ownership: ${pattern.ownershipPct.toFixed(1)}%
+                    </div>
+                `).join('');
+            }
+        }
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('active');
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                errorDiv.classList.remove('active');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
