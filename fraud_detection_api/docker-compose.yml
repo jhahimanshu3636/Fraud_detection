@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j
+    ports:
+      - "7474:7474"   # Browser (optional)
+      - "7687:7687"   # Bolt
+    environment:
+      NEO4J_AUTH: "neo4j/password"
+      NEO4JLABS_PLUGINS: '["apoc","gds"]'
+      NEO4J_dbms_security_procedures_allowlist: "apoc.*,gds.*"
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*,gds.*"
+      NEO4J_apoc_import_file_enabled: "true"
+      NEO4J_apoc_export_file_enabled: "true"
+    volumes:
+      - ./neo4j-data:/data
+      - ./neo4j-plugins:/plugins
+
+  fraud-viz:
+    build: .
+    container_name: fraud-viz
+    depends_on:
+      - neo4j
+    environment:
+      NEO4JURI: "bolt://neo4j:7687"
+      NEO4JUSER: "neo4j"
+      NEO4JPASSWORD: "password"
+    ports:
+      - "8000:8000"

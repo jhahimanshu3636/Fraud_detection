@@ -293,43 +293,6 @@
         "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
-          "C300",
-          "C23",
-          "C176",
-          "C33",
-          "C499"
-        ],
-        "chain_length": 5,
-        "total_invoices": 5,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C300"
-          },
-          {
-            "invoices": 1,
-            "company": "C23"
-          },
-          {
-            "invoices": 1,
-            "company": "C176"
-          },
-          {
-            "invoices": 1,
-            "company": "C33"
-          },
-          {
-            "invoices": 1,
-            "company": "C499"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A0",
-        "risk_level": "HIGH",
-        "chain": [
           "C406",
           "C150",
           "C206",
@@ -364,14 +327,14 @@
         "risk_score": 0.95
       },
       {
-        "auditor_id": "A1",
+        "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
-          "C353",
-          "C208",
-          "C390",
-          "C464",
-          "C194"
+          "C300",
+          "C23",
+          "C176",
+          "C33",
+          "C499"
         ],
         "chain_length": 5,
         "total_invoices": 5,
@@ -379,60 +342,23 @@
         "company_details": [
           {
             "invoices": 1,
-            "company": "C353"
+            "company": "C300"
           },
           {
             "invoices": 1,
-            "company": "C208"
+            "company": "C23"
           },
           {
             "invoices": 1,
-            "company": "C390"
+            "company": "C176"
           },
           {
             "invoices": 1,
-            "company": "C464"
+            "company": "C33"
           },
           {
             "invoices": 1,
-            "company": "C194"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C73",
-          "C104",
-          "C188",
-          "C349",
-          "C189"
-        ],
-        "chain_length": 5,
-        "total_invoices": 5,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C73"
-          },
-          {
-            "invoices": 1,
-            "company": "C104"
-          },
-          {
-            "invoices": 1,
-            "company": "C188"
-          },
-          {
-            "invoices": 1,
-            "company": "C349"
-          },
-          {
-            "invoices": 1,
-            "company": "C189"
+            "company": "C499"
           }
         ],
         "risk_score": 0.95
@@ -586,6 +512,80 @@
         "risk_score": 0.95
       },
       {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C353",
+          "C208",
+          "C390",
+          "C464",
+          "C194"
+        ],
+        "chain_length": 5,
+        "total_invoices": 5,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C353"
+          },
+          {
+            "invoices": 1,
+            "company": "C208"
+          },
+          {
+            "invoices": 1,
+            "company": "C390"
+          },
+          {
+            "invoices": 1,
+            "company": "C464"
+          },
+          {
+            "invoices": 1,
+            "company": "C194"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C73",
+          "C104",
+          "C188",
+          "C349",
+          "C189"
+        ],
+        "chain_length": 5,
+        "total_invoices": 5,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C73"
+          },
+          {
+            "invoices": 1,
+            "company": "C104"
+          },
+          {
+            "invoices": 1,
+            "company": "C188"
+          },
+          {
+            "invoices": 1,
+            "company": "C349"
+          },
+          {
+            "invoices": 1,
+            "company": "C189"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
         "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
@@ -626,43 +626,6 @@
         "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
-          "C198",
-          "C59",
-          "C316",
-          "C474",
-          "C93"
-        ],
-        "chain_length": 5,
-        "total_invoices": 6,
-        "avg_invoices": 1.2,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C198"
-          },
-          {
-            "invoices": 2,
-            "company": "C59"
-          },
-          {
-            "invoices": 1,
-            "company": "C316"
-          },
-          {
-            "invoices": 1,
-            "company": "C474"
-          },
-          {
-            "invoices": 1,
-            "company": "C93"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A0",
-        "risk_level": "HIGH",
-        "chain": [
           "C191",
           "C288",
           "C236",
@@ -692,6 +655,43 @@
           {
             "invoices": 1,
             "company": "C395"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C198",
+          "C59",
+          "C316",
+          "C474",
+          "C93"
+        ],
+        "chain_length": 5,
+        "total_invoices": 6,
+        "avg_invoices": 1.2,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C198"
+          },
+          {
+            "invoices": 2,
+            "company": "C59"
+          },
+          {
+            "invoices": 1,
+            "company": "C316"
+          },
+          {
+            "invoices": 1,
+            "company": "C474"
+          },
+          {
+            "invoices": 1,
+            "company": "C93"
           }
         ],
         "risk_score": 0.95
@@ -806,6 +806,102 @@
         "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
+          "C150",
+          "C206",
+          "C197",
+          "C432"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C150"
+          },
+          {
+            "invoices": 1,
+            "company": "C206"
+          },
+          {
+            "invoices": 1,
+            "company": "C197"
+          },
+          {
+            "invoices": 1,
+            "company": "C432"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C23",
+          "C176",
+          "C33",
+          "C499"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C23"
+          },
+          {
+            "invoices": 1,
+            "company": "C176"
+          },
+          {
+            "invoices": 1,
+            "company": "C33"
+          },
+          {
+            "invoices": 1,
+            "company": "C499"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C406",
+          "C150",
+          "C206",
+          "C197"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C406"
+          },
+          {
+            "invoices": 1,
+            "company": "C150"
+          },
+          {
+            "invoices": 1,
+            "company": "C206"
+          },
+          {
+            "invoices": 1,
+            "company": "C197"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
           "C300",
           "C23",
           "C176",
@@ -867,13 +963,13 @@
         "risk_score": 0.95
       },
       {
-        "auditor_id": "A0",
+        "auditor_id": "A1",
         "risk_level": "HIGH",
         "chain": [
-          "C23",
-          "C176",
-          "C33",
-          "C499"
+          "C48",
+          "C303",
+          "C331",
+          "C367"
         ],
         "chain_length": 4,
         "total_invoices": 4,
@@ -881,31 +977,31 @@
         "company_details": [
           {
             "invoices": 1,
-            "company": "C23"
+            "company": "C48"
           },
           {
             "invoices": 1,
-            "company": "C176"
+            "company": "C303"
           },
           {
             "invoices": 1,
-            "company": "C33"
+            "company": "C331"
           },
           {
             "invoices": 1,
-            "company": "C499"
+            "company": "C367"
           }
         ],
         "risk_score": 0.95
       },
       {
-        "auditor_id": "A0",
+        "auditor_id": "A1",
         "risk_level": "HIGH",
         "chain": [
-          "C150",
-          "C206",
-          "C197",
-          "C432"
+          "C496",
+          "C82",
+          "C348",
+          "C259"
         ],
         "chain_length": 4,
         "total_invoices": 4,
@@ -913,31 +1009,31 @@
         "company_details": [
           {
             "invoices": 1,
-            "company": "C150"
+            "company": "C496"
           },
           {
             "invoices": 1,
-            "company": "C206"
+            "company": "C82"
           },
           {
             "invoices": 1,
-            "company": "C197"
+            "company": "C348"
           },
           {
             "invoices": 1,
-            "company": "C432"
+            "company": "C259"
           }
         ],
         "risk_score": 0.95
       },
       {
-        "auditor_id": "A0",
+        "auditor_id": "A1",
         "risk_level": "HIGH",
         "chain": [
-          "C406",
-          "C150",
-          "C206",
-          "C197"
+          "C208",
+          "C390",
+          "C464",
+          "C194"
         ],
         "chain_length": 4,
         "total_invoices": 4,
@@ -945,19 +1041,179 @@
         "company_details": [
           {
             "invoices": 1,
-            "company": "C406"
+            "company": "C208"
           },
           {
             "invoices": 1,
-            "company": "C150"
+            "company": "C390"
           },
           {
             "invoices": 1,
-            "company": "C206"
+            "company": "C464"
           },
           {
             "invoices": 1,
-            "company": "C197"
+            "company": "C194"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C278",
+          "C496",
+          "C82",
+          "C348"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C278"
+          },
+          {
+            "invoices": 1,
+            "company": "C496"
+          },
+          {
+            "invoices": 1,
+            "company": "C82"
+          },
+          {
+            "invoices": 1,
+            "company": "C348"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C104",
+          "C188",
+          "C349",
+          "C189"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C104"
+          },
+          {
+            "invoices": 1,
+            "company": "C188"
+          },
+          {
+            "invoices": 1,
+            "company": "C349"
+          },
+          {
+            "invoices": 1,
+            "company": "C189"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C158",
+          "C48",
+          "C303",
+          "C331"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C158"
+          },
+          {
+            "invoices": 1,
+            "company": "C48"
+          },
+          {
+            "invoices": 1,
+            "company": "C303"
+          },
+          {
+            "invoices": 1,
+            "company": "C331"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C53",
+          "C213",
+          "C412",
+          "C25"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C53"
+          },
+          {
+            "invoices": 1,
+            "company": "C213"
+          },
+          {
+            "invoices": 1,
+            "company": "C412"
+          },
+          {
+            "invoices": 1,
+            "company": "C25"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A1",
+        "risk_level": "HIGH",
+        "chain": [
+          "C91",
+          "C445",
+          "C458",
+          "C413"
+        ],
+        "chain_length": 4,
+        "total_invoices": 4,
+        "avg_invoices": 1.0,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C91"
+          },
+          {
+            "invoices": 1,
+            "company": "C445"
+          },
+          {
+            "invoices": 1,
+            "company": "C458"
+          },
+          {
+            "invoices": 1,
+            "company": "C413"
           }
         ],
         "risk_score": 0.95
@@ -1030,134 +1286,6 @@
         "auditor_id": "A1",
         "risk_level": "HIGH",
         "chain": [
-          "C278",
-          "C496",
-          "C82",
-          "C348"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C278"
-          },
-          {
-            "invoices": 1,
-            "company": "C496"
-          },
-          {
-            "invoices": 1,
-            "company": "C82"
-          },
-          {
-            "invoices": 1,
-            "company": "C348"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C213",
-          "C412",
-          "C25",
-          "C396"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C213"
-          },
-          {
-            "invoices": 1,
-            "company": "C412"
-          },
-          {
-            "invoices": 1,
-            "company": "C25"
-          },
-          {
-            "invoices": 1,
-            "company": "C396"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C158",
-          "C48",
-          "C303",
-          "C331"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C158"
-          },
-          {
-            "invoices": 1,
-            "company": "C48"
-          },
-          {
-            "invoices": 1,
-            "company": "C303"
-          },
-          {
-            "invoices": 1,
-            "company": "C331"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C48",
-          "C303",
-          "C331",
-          "C367"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C48"
-          },
-          {
-            "invoices": 1,
-            "company": "C303"
-          },
-          {
-            "invoices": 1,
-            "company": "C331"
-          },
-          {
-            "invoices": 1,
-            "company": "C367"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
           "C445",
           "C458",
           "C413",
@@ -1190,19 +1318,15 @@
         "auditor_id": "A1",
         "risk_level": "HIGH",
         "chain": [
-          "C53",
           "C213",
           "C412",
-          "C25"
+          "C25",
+          "C396"
         ],
         "chain_length": 4,
         "total_invoices": 4,
         "avg_invoices": 1.0,
         "company_details": [
-          {
-            "invoices": 1,
-            "company": "C53"
-          },
           {
             "invoices": 1,
             "company": "C213"
@@ -1214,262 +1338,10 @@
           {
             "invoices": 1,
             "company": "C25"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C496",
-          "C82",
-          "C348",
-          "C259"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C496"
           },
           {
             "invoices": 1,
-            "company": "C82"
-          },
-          {
-            "invoices": 1,
-            "company": "C348"
-          },
-          {
-            "invoices": 1,
-            "company": "C259"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C91",
-          "C445",
-          "C458",
-          "C413"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C91"
-          },
-          {
-            "invoices": 1,
-            "company": "C445"
-          },
-          {
-            "invoices": 1,
-            "company": "C458"
-          },
-          {
-            "invoices": 1,
-            "company": "C413"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C104",
-          "C188",
-          "C349",
-          "C189"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C104"
-          },
-          {
-            "invoices": 1,
-            "company": "C188"
-          },
-          {
-            "invoices": 1,
-            "company": "C349"
-          },
-          {
-            "invoices": 1,
-            "company": "C189"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A1",
-        "risk_level": "HIGH",
-        "chain": [
-          "C208",
-          "C390",
-          "C464",
-          "C194"
-        ],
-        "chain_length": 4,
-        "total_invoices": 4,
-        "avg_invoices": 1.0,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C208"
-          },
-          {
-            "invoices": 1,
-            "company": "C390"
-          },
-          {
-            "invoices": 1,
-            "company": "C464"
-          },
-          {
-            "invoices": 1,
-            "company": "C194"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A0",
-        "risk_level": "HIGH",
-        "chain": [
-          "C59",
-          "C316",
-          "C474",
-          "C93"
-        ],
-        "chain_length": 4,
-        "total_invoices": 5,
-        "avg_invoices": 1.25,
-        "company_details": [
-          {
-            "invoices": 2,
-            "company": "C59"
-          },
-          {
-            "invoices": 1,
-            "company": "C316"
-          },
-          {
-            "invoices": 1,
-            "company": "C474"
-          },
-          {
-            "invoices": 1,
-            "company": "C93"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A0",
-        "risk_level": "HIGH",
-        "chain": [
-          "C96",
-          "C436",
-          "C136",
-          "C142"
-        ],
-        "chain_length": 4,
-        "total_invoices": 5,
-        "avg_invoices": 1.25,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C96"
-          },
-          {
-            "invoices": 1,
-            "company": "C436"
-          },
-          {
-            "invoices": 2,
-            "company": "C136"
-          },
-          {
-            "invoices": 1,
-            "company": "C142"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A0",
-        "risk_level": "HIGH",
-        "chain": [
-          "C88",
-          "C246",
-          "C41",
-          "C24"
-        ],
-        "chain_length": 4,
-        "total_invoices": 5,
-        "avg_invoices": 1.25,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C88"
-          },
-          {
-            "invoices": 1,
-            "company": "C246"
-          },
-          {
-            "invoices": 1,
-            "company": "C41"
-          },
-          {
-            "invoices": 2,
-            "company": "C24"
-          }
-        ],
-        "risk_score": 0.95
-      },
-      {
-        "auditor_id": "A0",
-        "risk_level": "HIGH",
-        "chain": [
-          "C198",
-          "C59",
-          "C316",
-          "C474"
-        ],
-        "chain_length": 4,
-        "total_invoices": 5,
-        "avg_invoices": 1.25,
-        "company_details": [
-          {
-            "invoices": 1,
-            "company": "C198"
-          },
-          {
-            "invoices": 2,
-            "company": "C59"
-          },
-          {
-            "invoices": 1,
-            "company": "C316"
-          },
-          {
-            "invoices": 1,
-            "company": "C474"
+            "company": "C396"
           }
         ],
         "risk_score": 0.95
@@ -1510,15 +1382,51 @@
         "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
-          "C288",
-          "C236",
-          "C275",
-          "C395"
+          "C88",
+          "C246",
+          "C41",
+          "C24"
         ],
         "chain_length": 4,
         "total_invoices": 5,
         "avg_invoices": 1.25,
         "company_details": [
+          {
+            "invoices": 1,
+            "company": "C88"
+          },
+          {
+            "invoices": 1,
+            "company": "C246"
+          },
+          {
+            "invoices": 1,
+            "company": "C41"
+          },
+          {
+            "invoices": 2,
+            "company": "C24"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C191",
+          "C288",
+          "C236",
+          "C275"
+        ],
+        "chain_length": 4,
+        "total_invoices": 5,
+        "avg_invoices": 1.25,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C191"
+          },
           {
             "invoices": 1,
             "company": "C288"
@@ -1530,10 +1438,6 @@
           {
             "invoices": 2,
             "company": "C275"
-          },
-          {
-            "invoices": 1,
-            "company": "C395"
           }
         ],
         "risk_score": 0.95
@@ -1574,19 +1478,15 @@
         "auditor_id": "A0",
         "risk_level": "HIGH",
         "chain": [
-          "C191",
           "C288",
           "C236",
-          "C275"
+          "C275",
+          "C395"
         ],
         "chain_length": 4,
         "total_invoices": 5,
         "avg_invoices": 1.25,
         "company_details": [
-          {
-            "invoices": 1,
-            "company": "C191"
-          },
           {
             "invoices": 1,
             "company": "C288"
@@ -1598,6 +1498,106 @@
           {
             "invoices": 2,
             "company": "C275"
+          },
+          {
+            "invoices": 1,
+            "company": "C395"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C198",
+          "C59",
+          "C316",
+          "C474"
+        ],
+        "chain_length": 4,
+        "total_invoices": 5,
+        "avg_invoices": 1.25,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C198"
+          },
+          {
+            "invoices": 2,
+            "company": "C59"
+          },
+          {
+            "invoices": 1,
+            "company": "C316"
+          },
+          {
+            "invoices": 1,
+            "company": "C474"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C96",
+          "C436",
+          "C136",
+          "C142"
+        ],
+        "chain_length": 4,
+        "total_invoices": 5,
+        "avg_invoices": 1.25,
+        "company_details": [
+          {
+            "invoices": 1,
+            "company": "C96"
+          },
+          {
+            "invoices": 1,
+            "company": "C436"
+          },
+          {
+            "invoices": 2,
+            "company": "C136"
+          },
+          {
+            "invoices": 1,
+            "company": "C142"
+          }
+        ],
+        "risk_score": 0.95
+      },
+      {
+        "auditor_id": "A0",
+        "risk_level": "HIGH",
+        "chain": [
+          "C59",
+          "C316",
+          "C474",
+          "C93"
+        ],
+        "chain_length": 4,
+        "total_invoices": 5,
+        "avg_invoices": 1.25,
+        "company_details": [
+          {
+            "invoices": 2,
+            "company": "C59"
+          },
+          {
+            "invoices": 1,
+            "company": "C316"
+          },
+          {
+            "invoices": 1,
+            "company": "C474"
+          },
+          {
+            "invoices": 1,
+            "company": "C93"
           }
         ],
         "risk_score": 0.95
@@ -2753,5 +2753,5 @@
       "C96"
     ]
   },
-  "timestamp": "2025-12-13T13:41:23.605936"
+  "timestamp": "2025-12-14T13:29:52.894451"
 }
