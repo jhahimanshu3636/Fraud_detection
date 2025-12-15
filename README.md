@@ -1105,28 +1105,6 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 Himanshu Jha
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-```
-
----
-
 ## 👥 Author
 
 **Himanshu Jha**
@@ -1135,48 +1113,6 @@ copies or substantial portions of the Software.
 
 ---
 
-## 🙏 Acknowledgments
-
-Special thanks to:
-- **Neo4j** - For the powerful graph database platform
-- **FastAPI** - For the modern, fast web framework
-- **Vis.js** - For excellent network visualization
-- **Jupyter** - For interactive development environment
-- **Faker** - For realistic synthetic data generation
-
----
-
-## 📊 Performance Metrics
-
-Tested on: MacBook Pro M1, 16GB RAM, Neo4j 5.x
-
-| Operation | Time | Notes |
-|-----------|------|-------|
-| Data Generation | 2.5s | 100 companies, 500 relationships |
-| Data Ingestion | 4.2s | Full database load |
-| Shell Chain Detection | 0.18s | Per company query |
-| Circular Trade Detection | 0.35s | Per company query |
-| Hidden Influence (PageRank) | 1.4s | Includes graph projection |
-| Network Visualization | 0.12s | 89 nodes, 113 edges |
-| Complete Analysis | 2.1s | All 3 patterns |
-
----
-
-## 🗺️ Future Roadmap
-
-### Version 2.0 (Planned)
-- [ ] Machine learning for risk scoring
-- [ ] Anomaly detection using graph embeddings
-- [ ] Real-time fraud alerts
-- [ ] Export to PDF reports
-- [ ] Dark mode for UI
-
-### Version 2.1 (Future)
-- [ ] Multi-language support
-- [ ] Mobile application
-- [ ] Integration with external data sources
-- [ ] Advanced analytics dashboard
-- [ ] Automated pattern discovery
 
 ---
 
@@ -1200,5 +1136,3 @@ If you find this project useful, please consider giving it a star! It helps othe
 ---
 
 **Made with ❤️ using Graph Theory and FastAPI**
-
-Last Updated: December 2025
