@@ -27,7 +27,6 @@ An advanced fraud detection system that leverages graph algorithms to identify s
 - [API Reference](#-api-reference)
 - [Technologies Used](#-technologies-used)
 - [Contributing](#-contributing)
-- [License](#-license)
 
 ---
 
