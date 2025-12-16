@@ -1271,27 +1271,6 @@ Contributions are welcome! Here's how you can help:
 - **Comments**: Explain "why", not "what"
 - **Naming**: Use descriptive variable names
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 Himanshu Jha
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-```
 
 ---
 
@@ -1300,51 +1279,6 @@ copies or substantial portions of the Software.
 **Himanshu Jha**
 - GitHub: [@jhahimanshu3636](https://github.com/jhahimanshu3636)
 - LinkedIn: [Connect with me](https://linkedin.com/in/jhahimanshu3636)
-
----
-
-## 🙏 Acknowledgments
-
-Special thanks to:
-- **Neo4j** - For the powerful graph database platform
-- **FastAPI** - For the modern, fast web framework
-- **Vis.js** - For excellent network visualization
-- **Jupyter** - For interactive development environment
-- **Faker** - For realistic synthetic data generation
-
----
-
-## 📊 Performance Metrics
-
-Tested on: MacBook Pro M1, 16GB RAM, Neo4j 5.x
-
-| Operation | Time | Dataset Size |
-|-----------|------|--------------|
-| Data Generation | 3.2s | 500 companies, 5,850 relationships |
-| Data Ingestion | 5.8s | 2,260 nodes, 5,849 relationships |
-| Shell Chain Detection | 0.22s | Per company query |
-| Circular Trade Detection | 0.41s | Per company query (includes cycle finding) |
-| Hidden Influence (PageRank) | 1.6s | Includes graph projection + analysis |
-| Network Visualization | 0.18s | ~89 nodes, ~113 edges typical view |
-| Complete Analysis (All Patterns) | 2.4s | All 3 patterns for one company |
-
----
-
-## 🗺️ Future Roadmap
-
-### Version 2.0 (Planned)
-- [ ] Machine learning for risk scoring
-- [ ] Anomaly detection using graph embeddings
-- [ ] Real-time fraud alerts
-- [ ] Export to PDF reports
-- [ ] Dark mode for UI
-
-### Version 2.1 (Future)
-- [ ] Multi-language support
-- [ ] Mobile application
-- [ ] Integration with external data sources
-- [ ] Advanced analytics dashboard
-- [ ] Automated pattern discovery
 
 ---
 
