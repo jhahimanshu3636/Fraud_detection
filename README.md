@@ -40,8 +40,24 @@ This fraud detection system analyzes financial networks to identify three critic
 3. **👤 Hidden Influence**: Discovers indirect control through concentrated supplier relationships
 
 The system operates in two modes:
-- **Batch Analysis**: Analyzes the entire network using Jupyter notebooks
+- **Batch Analysis**: Analyzes the entire network using Jupyter notebooks (500 companies, 5,849 relationships)
 - **Real-time Query**: Interactive web interface for company-specific analysis
+
+### 📊 Network Scale
+
+| Entity Type | Count | Description |
+|-------------|-------|-------------|
+| **Companies** | 500 | Including 76 in legitimate groups, 25 in fraud patterns |
+| **Shareholders** | 250 | Individual and institutional investors |
+| **Auditors** | 10 | Including 2 HIGH-RISK auditors |
+| **Invoices** | 1,500 | Transaction records |
+| **Relationships** | 5,849 | All connections (ownership, supply, audit, etc.) |
+
+### 🎯 Embedded Patterns
+
+- **2 Shell Company Chains** (10 companies, 4-company chains)
+- **3 Circular Trade Cycles** (11 companies, 3-5 company cycles)
+- **2 Hidden Influence Cases** (4 companies, >25% ownership patterns)
 
 ---
 
@@ -123,19 +139,19 @@ The system operates in two modes:
 ## 📸 Screenshots
 
 ### Main Interface - Network Visualization
-![Network View](docs/images/network_visualization.png)
-*Interactive graph showing company relationships with highlighted circular trade pattern*
-
-### Pattern Detection Results
-![Pattern Detection](docs/images/pattern_detection.png)
-*Detailed view showing detected fraud patterns with risk scores*
-
-### Simplified Network View
-![Simple View](docs/images/simplified_view.png)
+![Network View](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/web_ui_intro.png)
 *Clean visualization with risk-level color coding*
 
-### Analysis Panel
-![Analysis Panel](docs/images/analysis_panel.png)
+### Shell Company Pattern Highlight
+![Pattern Detection](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/shell_pattern.png)
+*Detailed view showing detected Shell company chains with risk scores*
+
+### Circular Trade Pattern Highlight
+![Simple View](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/circular_trade.png)
+*Interactive graph showing company relationships with highlighted circular trade pattern*
+
+### Hidden Influence Risk Highlight
+![Analysis Panel](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/hidden_influence.png)
 *Right panel showing detected patterns and risk metrics*
 
 ---
@@ -232,30 +248,32 @@ uvicorn app:app --reload
 ```
 Fraud_detection/
 │
-├── 📓 notebooks/                          # Jupyter notebooks
-│   ├── 1_data_generation.ipynb          # Generate synthetic fraud data
-│   ├── 2_data_ingestion.ipynb           # Load data into Neo4j
-│   └── 3_fraud_pattern_analysis.ipynb   # Analyze complete network
+├── 📓 notebooks/                            # Jupyter notebooks
+│   ├── synthetic_data_generation.ipynb     # Generate synthetic fraud data
+│   ├── graph_ingestion.ipynb               # Load data into Neo4j
+│   └── fraud_pattern_analysis.ipynb        # Analyze complete network
 │
-├── 📂 fraud_detection_api/               # FastAPI application
-│   ├── app.py                           # FastAPI server & endpoints
-│   ├── fraud_engine.py                  # Core fraud detection logic
-│   └── fraud_viewer.html                # Interactive web interface
+├── 📂 fraud_detection_api/                 # FastAPI application
+│   ├── app.py                              # FastAPI server & endpoints
+│   ├── fraud_engine.py                     # Core fraud detection logic
+│   └── fraud_viewer.html                   # Interactive web interface
 │
-├── 📂 data/                              # Generated data files
-│   ├── companies.json                   # Company data
-│   ├── shareholders.json                # Shareholder data
-│   ├── auditors.json                    # Auditor data
-│   └── relationships.json               # Relationship data
+├── 📂 output_csv/                          # Generated CSV files
+│   ├── subsidiary_of.csv                   # 224 relationships
+│   ├── owns_share.csv                      # 1,777 relationships
+│   ├── supplies.csv                        # 359 relationships
+│   ├── audited_by.csv                      # 500 relationships
+│   ├── issues_to.csv                       # 1,500 relationships
+│   └── pays.csv                            # 1,490 relationships
 │
-├── 📂 docs/                              # Documentation
-│   ├── images/                          # Screenshots
-│   ├── API_REFERENCE.md                 # API documentation
-│   └── PATTERNS.md                      # Fraud pattern details
+├── 📂 docs/                                # Documentation
+│   ├── images/                             # Screenshots
+│   ├── API_REFERENCE.md                    # API documentation
+│   └── PATTERNS.md                         # Fraud pattern details
 │
-├── 📄 README.md                          # This file
-├── 📄 requirements.txt                   # Python dependencies
-└── 📄 .gitignore                        # Git ignore rules
+├── 📄 README.md                            # This file
+├── 📄 requirements.txt                     # Python dependencies
+└── 📄 .gitignore                          # Git ignore rules
 ```
 
 ---
@@ -269,41 +287,98 @@ The first notebook generates synthetic financial network data with embedded frau
 #### Running the Notebook
 
 ```bash
-jupyter notebook notebooks/1_data_generation.ipynb
+jupyter notebook notebooks/synthetic_data_generation.ipynb
 ```
 
 #### What It Does
 
-1. **Generates Entities**:
-   - 100 companies with realistic names and industries
-   - 50 shareholders (individual and institutional)
-   - 10 auditors with varying risk levels (HIGH/MEDIUM/LOW)
-   - 500 invoices with amounts and dates
+The notebook generates a **realistic business network** with embedded fraud patterns following these phases:
 
-2. **Creates Relationships**:
-   - `SUBSIDIARY_OF`: Company hierarchies
-   - `OWNS_SHARE`: Ownership stakes (with percentage)
-   - `AUDITED_BY`: Audit relationships
-   - `SUPPLIES`: Supply chain (with annual volume)
-   - `ISSUES_TO` & `PAYS`: Invoice relationships
+##### **📊 Phase 1: Legitimate Business Structures**
+- Creates 10 legitimate corporate groups (76 companies total)
+- Establishes 20 legitimate supply chains
+- Generates organic business relationships
 
-3. **Embeds Fraud Patterns**:
-   - **3-5 Shell Company Chains**: Subsidiaries sharing high-risk auditors
-   - **4-6 Circular Trade Cycles**: Closed transaction loops
-   - **5-8 Hidden Influence Cases**: Indirect control via suppliers
+##### **🚨 Phase 2: Embedding Fraud Patterns**
+
+**Pattern 1: Shell Company Chains** (2 patterns, 10 companies)
+- Pattern 1.1: Main=C60, Chain Length=4, Auditor=A0 (HIGH-RISK)
+- Pattern 1.2: Main=C123, Chain Length=4, Auditor=A1 (HIGH-RISK)
+
+**Pattern 2: Circular Trade** (3 patterns, 11 companies)
+- Pattern 2.1: 5-company cycle: C297 → C282 → C50 → C409 → C2
+- Pattern 2.2: 3-company cycle: C450 → C271 → C207
+- Pattern 2.3: 3-company cycle: C364 → C233 → C211
+
+**Pattern 3: Hidden Influence** (2 patterns, 4 companies)
+- Pattern 3.1: Shareholder S221 owns 38% of C232, which supplies to C269
+- Pattern 3.2: Shareholder S83 owns 36% of C184, which supplies to C193
+
+##### **📈 Phase 3: Background Noise & Additional Relationships**
+- Random subsidiary relationships
+- Ownership structures  
+- Auditor assignments
+- Additional supply relationships
+- Invoice distribution across network (1,500 invoices)
+
+**Generated Entities**:
+- **500 companies** (including fraud patterns and noise)
+- **250 shareholders** (individual and institutional)
+- **10 auditors** with varying risk levels (2 HIGH-RISK, 8 MEDIUM/LOW)
+- **1,500 invoices** with amounts and dates
+
+**Created Relationships**:
+- `SUBSIDIARY_OF`: 224 company hierarchies
+- `OWNS_SHARE`: 1,777 ownership stakes (with percentage)
+- `AUDITED_BY`: 500 audit relationships
+- `SUPPLIES`: 359 supply chain connections (with annual volume)
+- `ISSUES_TO`: 1,500 invoice issuances
+- `PAYS`: 1,490 invoice payments
 
 #### Output
 
 ```
-✓ Generated 100 companies
-✓ Generated 50 shareholders
-✓ Generated 10 auditors
-✓ Generated 500 invoices
-✓ Embedded 3 shell company chains
-✓ Embedded 5 circular trade cycles
-✓ Embedded 6 hidden influence patterns
-✓ Data saved to data/ directory
+================================================================================
+📊 NETWORK STATISTICS
+================================================================================
+Total Companies: 500
+  • Legitimate corporate groups: 76 companies
+  • Shell company chains: 10 companies (2 patterns)
+  • Circular trade participants: 11 companies (3 patterns)
+  • Hidden influence pattern: 4 companies (2 patterns)
+  • Independent/Noise: 399 companies
+
+Invoice Activity Distribution:
+  • Low activity (≤3 invoices): 406 companies
+  • Medium activity (4-10): 28 companies
+  • High activity (>10): 66 companies
+================================================================================
+
+CSV Files Generated in output_csv/:
+✓ subsidiary_of.csv: 224 relationships
+✓ owns_share.csv: 1,777 relationships
+✓ supplies.csv: 359 relationships
+✓ audited_by.csv: 500 relationships
+✓ issues_to.csv: 1,500 relationships
+✓ pays.csv: 1,490 relationships
+================================================================================
+✅ Total edges generated: 5,850
+✅ All CSV files successfully saved
+================================================================================
+
+🎯 Pattern Detection Guide:
+  1. Shell Companies: HIGH-RISK auditor + low invoice count (≤1)
+  2. Circular Trade: Cycles in SUPPLIES with high volumes (>100M)
+  3. Hidden Influence: >25% ownership in suppliers with >80% concentration
 ```
+
+#### Embedded Fraud Patterns Summary
+
+| Pattern Type | Count | Companies Involved | Key Characteristics |
+|--------------|-------|-------------------|---------------------|
+| **Shell Company Chains** | 2 chains | 10 companies | HIGH-RISK auditor + ≤1 invoice |
+| **Circular Trade** | 3 cycles | 11 companies | Closed loops with >100M volume |
+| **Hidden Influence** | 2 cases | 4 companies | >25% ownership + >80% supply |
 
 ---
 
@@ -314,63 +389,146 @@ The second notebook loads the generated data into Neo4j database.
 #### Running the Notebook
 
 ```bash
-jupyter notebook notebooks/2_data_ingestion.ipynb
+jupyter notebook notebooks/graph_ingestion.ipynb
 ```
 
 #### What It Does
 
-1. **Connects to Neo4j**
-   ```python
-   driver = GraphDatabase.driver(
-       "bolt://localhost:7687",
-       auth=("neo4j", "password123")
-   )
-   ```
+The ingestion follows a structured 3-phase approach:
 
-2. **Clears Existing Data** (if any)
-   ```cypher
-   MATCH (n) DETACH DELETE n
-   ```
+##### **PHASE 1: INGESTING NODES**
 
-3. **Creates Constraints**
-   ```cypher
-   CREATE CONSTRAINT company_id IF NOT EXISTS 
-   FOR (c:Company) REQUIRE c.company_id IS UNIQUE;
-   ```
+1. **Companies** (500 nodes)
+   - Includes all legitimate and fraud pattern companies
+   - Properties: company_id, name, industry, founded, etc.
 
-4. **Creates Indexes**
-   ```cypher
-   CREATE INDEX company_name IF NOT EXISTS 
-   FOR (c:Company) ON (c.name);
-   ```
+2. **Auditors** (10 nodes)
+   - 2 HIGH-RISK auditors (involved in shell company patterns)
+   - 8 MEDIUM/LOW-RISK auditors
+   - Properties: auditor_id, name, risk_level
 
-5. **Loads All Entities**
-   - Companies → `:Company` nodes
-   - Shareholders → `:Shareholder` nodes
-   - Auditors → `:Auditor` nodes
-   - Invoices → `:Invoice` nodes
+3. **Shareholders** (250 nodes)
+   - Individual and institutional shareholders
+   - Properties: shareholder_id, name, type
 
-6. **Creates All Relationships**
-   - With appropriate properties
-   - Maintains referential integrity
+4. **Invoices** (1,500 nodes)
+   - Transaction records across the network
+   - Properties: invoice_id, amount, date
+
+##### **PHASE 2: CREATING RELATIONSHIPS**
+
+1. **OWNS_SHARE** (1,777 relationships)
+   - Shareholder ownership in companies
+   - Property: percentage (ownership stake)
+
+2. **AUDITED_BY** (500 relationships)
+   - Every company has an auditor
+   - Links companies to their audit firms
+
+3. **ISSUES_TO** (1,500 relationships)
+   - Companies issuing invoices
+   - Links companies to their issued invoices
+
+4. **PAYS** (1,490 relationships)
+   - Companies paying invoices
+   - Links companies to invoices they pay
+
+5. **SUBSIDIARY_OF** (224 relationships)
+   - Company hierarchies and ownership structures
+   - Property: since_year (when subsidiary relationship started)
+
+6. **SUPPLIES** (359 relationships)
+   - Supply chain connections between companies
+   - Property: annual_volume (transaction volume in millions)
+
+##### **PHASE 3: CREATING INDEXES**
+
+Performance optimization indexes are created:
+```cypher
+CREATE INDEX company_id_idx FOR (c:Company) ON (c.company_id);
+CREATE INDEX shareholder_id_idx FOR (s:Shareholder) ON (s.shareholder_id);
+CREATE INDEX auditor_id_idx FOR (a:Auditor) ON (a.auditor_id);
+CREATE INDEX invoice_id_idx FOR (i:Invoice) ON (i.invoice_id);
+CREATE INDEX company_risk_idx FOR (c:Company) ON (c.risk_score);
+CREATE INDEX auditor_risk_idx FOR (a:Auditor) ON (a.risk_level);
+```
 
 #### Output
 
 ```
+================================================================================
+🚀 STARTING NEO4J DATA INGESTION
+================================================================================
 🗑️  Clearing existing data...
-📋 Creating constraints and indexes...
-🏢 Loading 100 companies... ✓
-👤 Loading 50 shareholders... ✓
-📋 Loading 10 auditors... ✓
-🧾 Loading 500 invoices... ✓
-🔗 Creating relationships...
-   ├─ SUBSIDIARY_OF: 45 ✓
-   ├─ OWNS_SHARE: 87 ✓
-   ├─ AUDITED_BY: 100 ✓
-   ├─ SUPPLIES: 234 ✓
-   ├─ ISSUES_TO: 500 ✓
-   └─ PAYS: 500 ✓
-✅ Data ingestion complete!
+  ✅ Database cleared
+================================================================================
+PHASE 1: INGESTING NODES
+================================================================================
+🏢 Ingesting Companies...
+  ✅ 500 companies ingested
+👮 Ingesting Auditors...
+  ✅ 10 auditors ingested
+💼 Ingesting Shareholders...
+  ✅ 250 shareholders ingested
+📄 Ingesting Invoices...
+  ✅ 1,500 invoices ingested
+================================================================================
+PHASE 2: CREATING RELATIONSHIPS
+================================================================================
+📈 Creating OWNS_SHARE relationships...
+  ✅ 1,777 OWNS_SHARE relationships created
+🔍 Creating AUDITED_BY relationships...
+  ✅ 500 AUDITED_BY relationships created
+📤 Creating ISSUES_TO relationships...
+  ✅ 1,500 ISSUES_TO relationships created
+💳 Creating PAYS relationships...
+  ✅ 1,490 PAYS relationships created
+🏢 Creating SUBSIDIARY_OF relationships...
+  ✅ 224 SUBSIDIARY_OF relationships created
+🚚 Creating SUPPLIES relationships...
+  ✅ 359 SUPPLIES relationships created
+================================================================================
+PHASE 3: CREATING INDEXES
+================================================================================
+  ✅ CREATE INDEX company_id_idx
+  ✅ CREATE INDEX shareholder_id_idx
+  ✅ CREATE INDEX auditor_id_idx
+  ✅ CREATE INDEX invoice_id_idx
+  ✅ CREATE INDEX company_risk_idx
+  ✅ CREATE INDEX auditor_risk_idx
+================================================================================
+📊 GRAPH SUMMARY
+================================================================================
+Nodes:
+  • Invoice: 1,500
+  • Company: 500
+  • Shareholder: 250
+  • Auditor: 10
+  
+Relationships:
+  • OWNS_SHARE: 1,777
+  • ISSUES_TO: 1,500
+  • PAYS: 1,490
+  • AUDITED_BY: 500
+  • SUPPLIES: 359
+  • SUBSIDIARY_OF: 223
+
+TOTALS: 2,260 nodes | 5,849 relationships
+================================================================================
+🔍 VALIDATION CHECKS
+================================================================================
+✓ High-risk auditors: 2
+✓ Companies with parent companies: 182
+✓ Supply relationships: 359
+✓ Sample circular supply patterns found: 6
+✓ Ownership stakes >25%: 633
+================================================================================
+🎉 INGESTION COMPLETE!
+================================================================================
+Next steps:
+  1. Open Neo4j Browser at http://localhost:7474
+  2. Run: CALL db.schema.visualization()
+  3. Start detecting fraud patterns!
 ```
 
 #### Verification
@@ -379,14 +537,24 @@ Run these queries in Neo4j Browser (`http://localhost:7474`):
 
 ```cypher
 // Check node counts
-MATCH (c:Company) RETURN count(c) as companies;
-MATCH (s:Shareholder) RETURN count(s) as shareholders;
-MATCH (a:Auditor) RETURN count(a) as auditors;
+MATCH (c:Company) RETURN count(c) as companies;     // Should return 500
+MATCH (s:Shareholder) RETURN count(s) as shareholders; // Should return 250
+MATCH (a:Auditor) RETURN count(a) as auditors;     // Should return 10
+MATCH (i:Invoice) RETURN count(i) as invoices;     // Should return 1,500
 
-// Visualize sample
+// Check relationship counts
+MATCH ()-[r:OWNS_SHARE]->() RETURN count(r);       // Should return 1,777
+MATCH ()-[r:SUPPLIES]->() RETURN count(r);         // Should return 359
+MATCH ()-[r:SUBSIDIARY_OF]->() RETURN count(r);    // Should return 223
+
+// Visualize sample network
 MATCH (c:Company)-[r]->(n) 
 RETURN c, r, n 
-LIMIT 25;
+LIMIT 50;
+
+// View high-risk auditors
+MATCH (a:Auditor {risk_level: 'HIGH'})
+RETURN a.auditor_id, a.name;
 ```
 
 ---
@@ -398,7 +566,7 @@ The third notebook analyzes the entire network for all three fraud patterns.
 #### Running the Notebook
 
 ```bash
-jupyter notebook notebooks/3_fraud_pattern_analysis.ipynb
+jupyter notebook notebooks/fraud_pattern_analysis.ipynb
 ```
 
 #### What It Does
@@ -1105,6 +1273,28 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2025 Himanshu Jha
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
+
+---
+
 ## 👥 Author
 
 **Himanshu Jha**
@@ -1113,6 +1303,48 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
+## 🙏 Acknowledgments
+
+Special thanks to:
+- **Neo4j** - For the powerful graph database platform
+- **FastAPI** - For the modern, fast web framework
+- **Vis.js** - For excellent network visualization
+- **Jupyter** - For interactive development environment
+- **Faker** - For realistic synthetic data generation
+
+---
+
+## 📊 Performance Metrics
+
+Tested on: MacBook Pro M1, 16GB RAM, Neo4j 5.x
+
+| Operation | Time | Dataset Size |
+|-----------|------|--------------|
+| Data Generation | 3.2s | 500 companies, 5,850 relationships |
+| Data Ingestion | 5.8s | 2,260 nodes, 5,849 relationships |
+| Shell Chain Detection | 0.22s | Per company query |
+| Circular Trade Detection | 0.41s | Per company query (includes cycle finding) |
+| Hidden Influence (PageRank) | 1.6s | Includes graph projection + analysis |
+| Network Visualization | 0.18s | ~89 nodes, ~113 edges typical view |
+| Complete Analysis (All Patterns) | 2.4s | All 3 patterns for one company |
+
+---
+
+## 🗺️ Future Roadmap
+
+### Version 2.0 (Planned)
+- [ ] Machine learning for risk scoring
+- [ ] Anomaly detection using graph embeddings
+- [ ] Real-time fraud alerts
+- [ ] Export to PDF reports
+- [ ] Dark mode for UI
+
+### Version 2.1 (Future)
+- [ ] Multi-language support
+- [ ] Mobile application
+- [ ] Integration with external data sources
+- [ ] Advanced analytics dashboard
+- [ ] Automated pattern discovery
 
 ---
 
