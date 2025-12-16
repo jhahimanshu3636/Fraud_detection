@@ -139,19 +139,19 @@ The system operates in two modes:
 ## 📸 Screenshots
 
 ### Main Interface - Network Visualization
-![Network View](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/web_ui_intro.png)
+![Network View](docs/images/web_ui_intro.png)
 *Clean visualization with risk-level color coding*
 
 ### Shell Company Pattern Highlight
-![Pattern Detection](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/shell_pattern.png)
+![Pattern Detection](docs/images/shell_pattern.png)
 *Detailed view showing detected Shell company chains with risk scores*
 
 ### Circular Trade Pattern Highlight
-![Simple View](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/circular_trade.png)
+![Simple View](docs/images/circular_trade.png)
 *Interactive graph showing company relationships with highlighted circular trade pattern*
 
 ### Hidden Influence Risk Highlight
-![Analysis Panel](/Users/himanshujha/Desktop/VS_Code/Fraud_detection/docs/images/hidden_influence.png)
+![Analysis Panel](docs/images/hidden_influence.png)
 *Right panel showing detected patterns and risk metrics*
 
 ---
